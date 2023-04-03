@@ -1,0 +1,24 @@
+-----------------------------------------------------------------------------------
+Merge Plugins v1.9: Merges files.  For use with xEdit.
+-----------------------------------------------------------------------------------
+FNVEdit version 4.0.3
+
+Merging Massive Object Ownership Revamp Merged.esp
+Merging PlacedObjects.esp
+
+Script is using placedObjectsMassiveObject.esp as the merge file.
+    Adding masters to merge file...
+
+Renumbering conflicting FormIDs before merging...
+    Renumbering records in file Massive Object Ownership Revamp Merged.esp
+    Renumbering records in file PlacedObjects.esp
+    0 records renumbered.
+
+Copying records...
+    Copying records from PlacedObjects.esp
+    Copying records from Massive Object Ownership Revamp Merged.esp
+    136191 records copied.
+
+Removing unnecessary masters...
+    Removing master PlacedObjects.esp
+    Removing master Massive Object Ownership Revamp Merged.esp
