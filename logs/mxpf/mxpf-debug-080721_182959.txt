@@ -1,0 +1,244 @@
+MXPF Initialized at 18:29:59
+ 
+MXPF: Set inclusions to:
+  PlacedCreature.esp
+ 
+MXPF: Loading records matching signature REFR
+  Skipping file FalloutNV.esm
+  Skipping file FalloutNV.exe
+  Skipping file DeadMoney.esm
+  Skipping file HonestHearts.esm
+  Skipping file OldWorldBlues.esm
+  Skipping file LonesomeRoad.esm
+  Skipping file GunRunnersArsenal.esm
+  Skipping file Fallout3.esm
+  Skipping file Anchorage.esm
+  Skipping file ThePitt.esm
+  Skipping file BrokenSteel.esm
+  Skipping file CaravanPack.esm
+  Skipping file ClassicPack.esm
+  Skipping file WastelandEncounters.esm
+  Skipping file PointLookout.esm
+  Skipping file Zeta.esm
+  Skipping file TaleofTwoWastelands.esm
+  Skipping file AnotherInteriorMod.esm
+  Skipping file Extended Difficulty Encounters - TTW.esm
+  Skipping file FO4_ingredients.esm
+  Skipping file YUPTTW.esm
+  Skipping file FO4_ingrTTWPatch.esp
+  Skipping file IntimacyOverhaul_v1.0.esm
+  Skipping file MercenaryPack.esm
+  Skipping file oHUD.esm
+  Skipping file RagdollsTTW.esm
+  Skipping file RBX.esm
+  Skipping file TribalPack.esm
+  Skipping file TTW New Vegas Speech Checks.esm
+  Skipping file TTW Reputations.esm
+  Skipping file TTWInteriors_Core.esm
+  Skipping file TTWInteriorsProject_Combo.esm
+  Skipping file WMR.esm
+  Skipping file wsex.esm
+  Skipping file Frequency.esm
+  Skipping file RAF-HardCore.esm
+  Skipping file Endless Warfare.esm
+  Skipping file FyTy - Moveable Statics To Items Clean.esm
+  Skipping file 1nivVSLArmors.esp
+  Skipping file Automated Reloading Bench.esp
+  Skipping file BLEED.esp
+  Skipping file Bottle Rinse Repeat.esp
+  Skipping file Bouncing Natural Breasts.esp
+  Skipping file NPCLevelOverhaul.esp
+  Skipping file Buy or Steal.esp
+  Skipping file ExRB.esp
+  Skipping file Casino Exchange All.esp
+  Skipping file Currency of the Mojave.esp
+  Skipping file ScrapAndRepair.esp
+  Skipping file Clean-QuickSave.esp
+  Skipping file NV Economy Improved.esp
+  Skipping file Player Combat Priority.esp
+  Skipping file Combined Weapons.esp
+  Skipping file Convenient Crafting TTW.esp
+  Skipping file Universal Water Bottling.esp
+  Skipping file Crafting Organization Overhaul.esp
+  Skipping file TTW BarterWithRaiders.esp
+  Skipping file Difficult Doctoring.esp
+  Skipping file Enhanced Item Info.esp
+  Skipping file Extremely Degraded Weapons and Armor of Killed NPCs.esp
+  Skipping file FafnirUniqueTTWOverhaul.esp
+  Skipping file Faster Terminals.esp
+  Skipping file Equipment Restoration Project.esp
+  Skipping file Flora Overhaul.esp
+  Skipping file FO4Crafting.esp
+  Skipping file FPSWeaponWheel.esp
+  Skipping file TTW DC Farms.esp
+  Skipping file Integration - Couriers Stash.esp
+  Skipping file junk weapon expanded repair.esp
+  Skipping file HitOwnership.esp
+  Skipping file KenraalisAdditionalRecipesAndStuff.esp
+  Skipping file LegionLoreFriendly.esp
+  Skipping file LiveDismember.esp
+  Skipping file LootEverything_ForDlcSupport.esp
+  Skipping file LootMenu.esp
+  Skipping file Massive Object Ownership Revamp Merged.esp
+  Skipping file ACE - All DLC.esp
+  Skipping file medtektraumakit_edisleado.esp
+  Skipping file Food Scraps.esp
+  Skipping file Mojave Arsenal.esp
+  Skipping file Mojave Raiders.esp
+  Skipping file MojaveImportsTTW.esp
+  Skipping file MoreCookingWithDLC.esp
+  Skipping file CoverOfDarkness.esp
+  Skipping file NCR Weapon Overhaul.esp
+  Skipping file NewVegasRaiders 1.1.esp
+  Skipping file No Sleeves No Shirts NV Special.esp
+  Skipping file No Sleeves No Shirts NV.esp
+  Skipping file NPCs wear NSNS NV.esp
+  Skipping file Fucking Scary Fiends.esp
+  Skipping file NSNSDM.esp
+  Skipping file NSNSHH.esp
+  Skipping file NSNSLR.esp
+  Skipping file OutcastTradingTerminal.esp
+  Skipping file PickCompanionArmorandWeapons.esp
+  Skipping file PracticeMakesPerfect.esp
+  Skipping file Prospector Bartop Dancer.esp
+  Skipping file Radar.esp
+  Skipping file map_icon_overhaul.esp
+  Skipping file RB_RaiderPA.esp
+  Skipping file Reactive People II - Sneak & Diversion.esp
+  Skipping file Realistic_Repair_NV.esp
+  Skipping file reloadingisfun.esp
+  Skipping file RKREnhanced.esp
+  Skipping file Roberts_NewVegas.esp
+  Skipping file Root 'n Loot.esp
+  Skipping file Scrapper.esp
+  Skipping file Store Your Items.esp
+  Skipping file The Mod Configuration Menu.esp
+  Skipping file The Weapon Mod Menu.esp
+  Skipping file True Wasteland Economy.esp
+  Skipping file F4StaticPatch.esp
+  Skipping file TTW - Bottle That Water.esp
+  Skipping file TTW Armored Wasteland.esp
+  Skipping file TTW Expanded DC Vendor Inventories.esp
+  Skipping file TTW Quick Start.esp
+  Skipping file Type3MClothing.esp
+  Skipping file Universal Item Sorter.esp
+  Skipping file WMR_DeadMoney_R.esp
+  Skipping file WMR_DeadMoney_S.esp
+  Skipping file WMR_GunRunnersArsenal_R.esp
+  Skipping file ScriptedAmmoFix.esp
+  Skipping file WMR_GunRunnersArsenal_S.esp
+  Skipping file WMR_HonestHearts_R.esp
+  Skipping file WMR_HonestHearts_S.esp
+  Skipping file WMR_LonesomeRoad_R.esp
+  Skipping file WMR_LonesomeRoad_S.esp
+  Skipping file WMR_OldWorldBlues_R.esp
+  Skipping file WMR_OldWorldBlues_S.esp
+  Skipping file WMR_Vanilla_R.esp
+  Skipping file WMR_Vanilla_S.esp
+  Skipping file wsex-DSI.esp
+  Skipping file wsexInnuendoNPCs.esp
+  Skipping file HeightRandomizer - TTW.esp
+  Skipping file Improved Raiders.esp
+  Skipping file FyTy - Companion Framework.esp
+  Skipping file FyTy - Robotician.esp
+  Skipping file Gun Runners' Arsenal Merged.esp
+  Skipping file JSawyer Ultimate.esp
+  Skipping file JSawyer Ultimate - TTW Patch.esp
+  Skipping file DLCIntegration.esp
+  Skipping file Logic and Consistency Fixes.esp
+  Skipping file ResourcefullCraftMen.esp
+  Skipping file wsexInnuendoAnims.esp
+  Skipping file HeadSlots.esp
+  Skipping file Combat-PAClassicStatsScaling.esp
+  Skipping file Power Armor Training Perk.esp
+  Skipping file TTWEconomyStreamlined.esp
+  Skipping file vanilla BnB clothes.esp
+  Skipping file Frequency - Dead Money Patch.esp
+  Skipping file Frequency - Honest Hearts Patch.esp
+  Skipping file Frequency - Old World Blues Patch.esp
+  Skipping file LUMENARIUM - Working Sunglasses ONLY.esp
+  Skipping file LUMENARIUM - Bright Clear Days.esp
+  Skipping file No sleeves no shirts.esp
+  Skipping file NPCs wear NSNS adult v2.esp
+  Skipping file LessIntrusiveKillCam.esp
+  Skipping file Craft Overhaul 1.1.esp
+  Skipping file PMT - More Demanding Hardcore.esp
+  Skipping file Oven Cooking.esp
+  Skipping file PMT - Slower Backward Movement.esp
+  Skipping file ReElijahfied.esp
+  Skipping file Meltdown Medley.esp
+  Skipping file PMT - OWB - Less Generous Sink Buddies.esp
+  Skipping file PMT - OWB - Slave Collar Explosives.esp
+  Skipping file MassRecalibration.esp
+  Skipping file RAF-Hard-HH.esp
+  Skipping file RAF-Hard-DM.esp
+  Skipping file RAF-Hard-LR.esp
+  Skipping file RAF-Hard-OWB.esp
+  Skipping file PMT - Responsive Kill Reactions.esp
+  Skipping file Improved Ownership.esp
+  Skipping file Weighted Bottle Caps.esp
+  Skipping file Quick Trade.esp
+  Skipping file Ownerless Trash.esp
+  Skipping file Convenient Fast Travel Markers.esp
+  Skipping file TakeYourTime.esp
+  Skipping file The Wasteland Recycler-All (Plus Chem Weights).esp
+  Skipping file JIP Improved Recipe Menu.esp
+  Skipping file FirstAidNVSE.esp
+  Skipping file LFox Missing Ammo Recipes ALL DLC.esp
+  Skipping file ExpandedCraftingFromTheEastCoast.esp
+  Skipping file AnimCoffeeMaker.esp
+  Skipping file HireAndRecruit2.esp
+  Skipping file TTW Cooking Revolution.esp
+  Skipping file MapMarkers.esp
+  Skipping file ArmorPadding.esp
+  Skipping file Maintenance.esp
+  Skipping file Handloader.esp
+  Skipping file MaintenanceCQC.esp
+  Skipping file MaintenanceEnergy.esp
+  Skipping file Overcoat.esp
+  Skipping file CombatArmourPartsWithMerchant.esp
+  Skipping file AshensMetalArmourComponentPack.esp
+  Skipping file RangerAdvancedCustomOvercoats.esp
+  Skipping file RangerOvercoat.esp
+  Skipping file EliteRangerCombatArmourComponents.esp
+  Skipping file CPCN_AidMenu.esp
+  Skipping file NPCsSprint.esp
+  Skipping file terminal.esp
+  Skipping file RecepieCategory.esp
+  Skipping file package.esp
+  Skipping file LvlNpcs.esp
+  Skipping file LoadScreen.esp
+  Skipping file ItemMod.esp
+  Skipping file ImageSpace.esp
+  Skipping file IdleAnimation.esp
+  Skipping file Faction.esp
+  Skipping file EffectShader.esp
+  Skipping file EncounterZone.esp
+  Skipping file Ammunition.esp
+  Skipping file AmmoEffect.esp
+  Skipping file LvlCreatures.esp
+  Skipping file Explosion.esp
+  Skipping file Energy Ammo Recipes Moved - TTW.esp
+  Skipping file ArmorAddon.esp
+  Skipping file Light.esp
+  Skipping file placedGranede.esp
+  Skipping file PlacedObjects.esp
+  Skipping file PlacedNpc.esp
+  Skipping file Landscape.esp
+  Processing file PlacedCreature.esp
+    Group REFR not found.
+  Skipping file FormiD.esp
+  Skipping file ObjectEffect.esp
+  Skipping file recepie.esp
+  Skipping file ActorEffect.esp
+  Skipping file Armour.esp
+  Skipping file weapons.esp
+  Skipping file BodyPartsData.esp
+  Skipping file Creature.esp
+  Skipping file Door.esp
+  Skipping file nonplayerchar.esp
+  Skipping file DialogResponse.esp
+MXPF: Couldn't find any records matching signature REFR
+ 
+ 
+MXPF Finalized at 18:29:59
