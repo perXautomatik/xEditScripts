@@ -19,7 +19,8 @@ unit wbStreams;
 interface
 
 uses
-  SysUtils, Math, Classes, Windows;
+  SysUtils, Math, Classes, Windows,
+  wbInterface;
 
 type
   TwbBaseCachedFileStreamClass = class of TwbBaseCachedFileStream;
@@ -59,24 +60,17 @@ type
     function Write(const Buffer; Count: Longint): Longint; override;
     function Seek(const Offset: Int64; Origin: TSeekOrigin): Int64; override;
 
+    function ReadSignature: TwbSignature; inline;
     function ReadByte: Byte; inline;
     function ReadWord: Word; inline;
     function ReadCardinal: Cardinal; inline;
     function ReadInt64: Int64; inline;
-    function ReadUInt64: UInt64; inline;
-    function ReadStringLen(Term: Boolean = True): string;
-    function ReadStringLen16: string;
-    function ReadStringTerm: string;
+    function ReadStringLen(Term: Boolean = True): string; inline;
+    function ReadStringLen16: string; inline;
+    function ReadStringTerm: string; inline;
 
-    procedure WriteByte(aValue: Byte); inline;
-    procedure WriteWord(aValue: Word); inline;
-    procedure WriteCardinal(aValue: Cardinal); inline;
-    procedure WriteSmallInt(aValue: SmallInt); inline;
-    procedure WriteInt64(aValue: Int64); inline;
-    procedure WriteUInt64(aValue: UInt64); inline;
-    procedure WriteStringLen(const aValue: string; Term: Boolean = True);
-    procedure WriteStringLen16(const aValue: string);
-    procedure WriteStringTerm(const aValue: string);
+    procedure WriteCardinal(aCardinal: Cardinal); inline;
+    procedure WriteSmallInt(aSmallInt: SmallInt); inline;
   end;
 
   IDisableStreamReadCache = interface
@@ -297,7 +291,7 @@ begin
   ReadBuffer(Result, SizeOf(Result));
 end;
 
-function TwbBaseCachedFileStream.ReadUInt64: UInt64;
+function TwbBaseCachedFileStream.ReadSignature: TwbSignature;
 begin
   ReadBuffer(Result, SizeOf(Result));
 end;
@@ -324,7 +318,7 @@ begin
     if Term then
       SetLength(s, Pred(Length(s)));
   end;
-  Result := string(s);
+  Result := s;
 end;
 
 function TwbBaseCachedFileStream.ReadStringLen16: string;
@@ -336,7 +330,7 @@ begin
   SetLength(s, Len);
   if Len > 0 then
     ReadBuffer(s[1], Len);
-  Result := string(s);
+  Result := s;
 end;
 
 function TwbBaseCachedFileStream.ReadStringTerm: string;
@@ -356,7 +350,7 @@ begin
     until s[i] = #0;
     SetLength(s, Pred(i));
   end;
-  Result := string(s);
+  Result := s;
 end;
 
 function TwbBaseCachedFileStream.Write(const Buffer; Count: Integer): Longint;
@@ -364,68 +358,14 @@ begin
   raise EAssertionFailed.Create('Cannot write to this stream');
 end;
 
-procedure TwbBaseCachedFileStream.WriteByte(aValue: Byte);
+procedure TwbBaseCachedFileStream.WriteCardinal(aCardinal: Cardinal);
 begin
-  WriteBuffer(aValue, SizeOf(aValue));
+  WriteBuffer(aCardinal, SizeOf(aCardinal));
 end;
 
-procedure TwbBaseCachedFileStream.WriteWord(aValue: Word);
+procedure TwbBaseCachedFileStream.WriteSmallInt(aSmallInt: SmallInt);
 begin
-  WriteBuffer(aValue, SizeOf(aValue));
-end;
-
-procedure TwbBaseCachedFileStream.WriteCardinal(aValue: Cardinal);
-begin
-  WriteBuffer(aValue, SizeOf(aValue));
-end;
-
-procedure TwbBaseCachedFileStream.WriteSmallInt(aValue: SmallInt);
-begin
-  WriteBuffer(aValue, SizeOf(aValue));
-end;
-
-procedure TwbBaseCachedFileStream.WriteInt64(aValue: Int64);
-begin
-  WriteBuffer(aValue, SizeOf(aValue));
-end;
-
-procedure TwbBaseCachedFileStream.WriteUInt64(aValue: UInt64);
-begin
-  WriteBuffer(aValue, SizeOf(aValue));
-end;
-
-procedure TwbBaseCachedFileStream.WriteStringLen(const aValue: string; Term: Boolean = True);
-var
-  Len : Byte;
-  s   : AnsiString;
-begin
-  if Term then
-    s := AnsiString(aValue) + #0
-  else
-    s := AnsiString(aValue);
-
-  Len := Length(s);
-  WriteBuffer(Len, SizeOf(Len));
-  WriteBuffer(s[1], Length(s));
-end;
-
-procedure TwbBaseCachedFileStream.WriteStringLen16(const aValue: string);
-var
-  Len : Word;
-  s   : AnsiString;
-begin
-  s := AnsiString(aValue);
-  Len := Length(s);
-  WriteBuffer(Len, SizeOf(Len));
-  WriteBuffer(s[1], Length(s));
-end;
-
-procedure TwbBaseCachedFileStream.WriteStringTerm(const aValue: string);
-var
-  s   : AnsiString;
-begin
-  s := AnsiString(aValue) + #0;
-  WriteBuffer(s[1], Length(s));
+  WriteBuffer(aSmallInt, SizeOf(aSmallInt));
 end;
 
 function TwbBaseCachedFileStream.Seek(const Offset: Int64; Origin: TSeekOrigin): Int64;

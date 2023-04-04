@@ -3,7 +3,7 @@ unit mteHelpers;
 interface
 
 uses
-  Windows, SysUtils, Vcl.Forms, Classes, Vcl.ComCtrls, Vcl.Grids, Vcl.StdCtrls, Types;
+  Windows, SysUtils, Forms, Classes, ComCtrls, Grids, StdCtrls, Types;
 
 type
   TCallback = procedure of object;
@@ -33,6 +33,7 @@ type
   function Wordwrap(s: string; charCount: integer): string;
   function ExtractPath(path: string; levels: integer): string;
   function ContainsMatch(var sl: TStringList; const s: string): boolean;
+  procedure DeleteMatchingItems(item: string; var sl: TStringList);
   function IsURL(s: string): boolean;
   function IsDotFile(fn: string): boolean;
   procedure SaveStringToFile(s: string; fn: string);
@@ -93,7 +94,7 @@ var
 implementation
 
 uses
-  Vcl.Controls, Masks, Vcl.Dialogs, StrUtils, Vcl.FileCtrl, ShellApi,
+  Controls, Masks, Dialogs, StrUtils, FileCtrl, ShellApi,
   Messages, CommCtrl, DateUtils, shlObj, IOUtils, Registry;
 
 
@@ -463,6 +464,17 @@ begin
       Result := true;
       break;
     end;
+end;
+
+{ Deletes items from @sl that match the input string @item }
+procedure DeleteMatchingItems(item: string; var sl: TStringList);
+var
+  i: Integer;
+begin
+  for i := Pred(sl.Count) downto 0 do begin
+    if sl[i] = item then
+      sl.Delete(i);
+  end;
 end;
 
 { Returns true if the string is an http:// or https:// url }
@@ -1072,24 +1084,19 @@ var
 begin
   m := TMemoryStream.Create;
   try
+    rs := TResourceStream.CreateFromID(HInstance, 1, RT_VERSION);
     try
-      rs := TResourceStream.CreateFromID(HInstance, 1, RT_VERSION);
-      try
-        m.CopyFrom(rs, rs.Size);
-      finally
-        rs.Free;
-      end;
-      m.Position := 0;
-      if VerQueryValue(m.Memory, '\', Pointer(verblock), verlen) then begin
-        VersionMS := verblock.dwFileVersionMS;
-        VersionLS := verblock.dwFileVersionLS;
-        Result := Format('%s.%s.%s.%s', [IntToStr(versionMS shr 16),
-          IntToStr(versionMS and $FFFF), IntToStr(VersionLS shr 16),
-          IntToStr(VersionLS and $FFFF)]);
-      end;
-    except
-      on x: Exception do
-        Result := '0.0.0.0';
+      m.CopyFrom(rs, rs.Size);
+    finally
+      rs.Free;
+    end;
+    m.Position := 0;
+    if VerQueryValue(m.Memory, '\', Pointer(verblock), verlen) then begin
+      VersionMS := verblock.dwFileVersionMS;
+      VersionLS := verblock.dwFileVersionLS;
+      Result := Format('%s.%s.%s.%s', [IntToStr(versionMS shr 16),
+        IntToStr(versionMS and $FFFF), IntToStr(VersionLS shr 16),
+        IntToStr(VersionLS and $FFFF)]);
     end;
   finally
     m.Free;
