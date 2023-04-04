@@ -21,13 +21,13 @@ interface
 uses
   Classes,
   SysUtils,
-  Vcl.Graphics;
+  Graphics;
 
 const
-  VersionString  = '3.2.2';
+  VersionString  = '3.2';
   clOrange       = $004080FF;
   wbFloatDigits  = 6;
-  wbHardcodedDat = '.Hardcoded.dat';
+  wbHardcodedDat = '.Hardcoded.keep.this.with.the.exe.and.otherwise.ignore.it.I.really.mean.it.dat';
 
 type
   TwbProgressCallback = procedure(const aStatus: string);
@@ -40,12 +40,10 @@ threadvar
   wbCurrentAction    : string;
   wbStartTime        : TDateTime;
   wbShowStartTime    : Integer;
-  wbForceTerminate   : Boolean;
 
 var
   wbDisplayLoadOrderFormID : Boolean  = False;
   wbSimpleRecords          : Boolean  = True;
-  wbAdvancedNAVI           : Boolean  = False;
   wbFixupPGRD              : Boolean  = False;
   wbIKnowWhatImDoing       : Boolean  = False;
   wbHideUnused             : Boolean  = True;
@@ -75,9 +73,6 @@ var
   wbResolveAlias           : Boolean  = True;
   wbActorTemplateHide      : Boolean  = True;
   wbClampFormID            : Boolean  = True;
-  wbAllowSlowSearching     : Boolean  = True;
-  wbSortOnDemand           : Boolean  = True;
-  wbAllowErrors            : Boolean  = True;
   wbDoNotBuildRefsFor      : TStringList;
   wbCopyIsRunning          : Integer  = 0;
 
@@ -121,21 +116,12 @@ var
   wbRotationScale  : Integer = 4;
 
   wbDumpOffset : Integer  = 0;  // 1= starting offset, 2 = Count, 3 = Offsets, size and count
-  wbBaseOffset : NativeUInt = 0;
+  wbBaseOffset : Cardinal = 0;
 
   wbProgramPath        : string;
   wbDataPath           : string;
   wbOutputPath         : string;
-  wbScriptsPath        : string;
-  wbBackupPath         : string;
-  wbTempPath           : string;
-  wbSavePath           : string;
-  wbMyGamesTheGamePath : string;
   wbTheGameIniFileName : string;
-
-  wbCreationClubContentFileName : string;
-  wbCreationClubContent: array of string;
-  wbOfficialDLC        : array of string;
 
   wbShouldLoadMOHookFile : Boolean;
   wbMOProfile            : string;
@@ -185,7 +171,7 @@ type
     caOverride,
     caConflict,
     caConflictCritical
-  );
+    );
 
   TByteSet = set of Byte;
   TConflictAllSet = set of TConflictAll;
@@ -204,7 +190,7 @@ type
     ctIdenticalToMasterWinsConflict,
     ctConflictWins,
     ctConflictLoses
-  );
+    );
 
   TConflictThisSet = set of TConflictThis;
   TConflictThisColors = array[TConflictThis] of TColor;
@@ -327,7 +313,7 @@ type
     function GetDefTypeName: string;
     function CanAssign(const aElement: IwbElement; aIndex: Integer; const aDef: IwbDef): Boolean;
     function Assign(const aTarget: IwbElement; aIndex: Integer; const aSource: IwbElement; aOnlySK: Boolean): IwbElement;
-    function GetDefID: NativeUInt;
+    function GetDefID: Cardinal;
     function Equals(const aDef: IwbDef): Boolean;
     function GetConflictPriority(const aElement: IwbElement): TwbConflictPriority;
     function GetConflictPriorityCanChange: Boolean;
@@ -349,7 +335,7 @@ type
       read GetDefType;
     property DefTypeName: string
       read GetDefTypeName;
-    property DefID: NativeUInt
+    property DefID: Cardinal
       read GetDefID;
     property ConflictPriority[const aElement: IwbElement]: TwbConflictPriority
       read GetConflictPriority;
@@ -413,8 +399,7 @@ type
     esDestroying,
     esChangeNotified,
     esModifiedUpdated,
-    esSorting,
-    esFilterShow
+    esSorting
   );
 
   TwbElementStates = set of TwbElementState;
@@ -430,7 +415,7 @@ type
   IwbElement = interface
     ['{F4B4637D-C794-415F-B5C7-587EAA4095B3}']
 
-    function GetElementID: NativeUInt;
+    function GetElementID: Cardinal;
     function GetElementStates: TwbElementStates;
     procedure SetElementState(aState: TwbElementState; Clear: Boolean = false);
     function Equals(const aElement: IwbElement): Boolean;
@@ -504,7 +489,6 @@ type
 
     procedure Hide;
     procedure Show;
-    procedure Filter(show: Boolean);
     function GetIsHidden: Boolean;
 
     procedure MoveUp;
@@ -530,7 +514,7 @@ type
     function GetTreeHead: Boolean;              // Is the element expected to be a "header record" in the tree navigator
     function GetTreeBranch: Boolean;            // Is the element expected to show in the tree navigator
 
-    property ElementID: NativeUInt
+    property ElementID: Cardinal
       read GetElementID;
     property ElementStates: TwbElementStates
       read GetElementStates;
@@ -767,35 +751,26 @@ type
     fsIsHardcoded,
     fsIsGameMaster,
     fsIsTemporary,
-    fsHasNoFormID,
-    fsIsEditable
+    fsHasNoFormID
   );
 
   TwbFileStates = set of TwbFileState;
   TwbPluginExtensions = TDynStrings;
 
-  TDynMainRecords = array of IwbMainRecord;
-  TConditionFunc = reference to function(rec: IwbMainRecord): Boolean;
-
   IwbFile = interface(IwbContainer)
     ['{38AA15A6-F652-45C7-B875-9CB502E5DA92}']
     function GetFileName: string;
-    procedure SetFileName(const aNewName: string);
     function GetUnsavedSince: TDateTime;
     function GetMaster(aIndex: Integer): IwbFile;
     function GetMasterCount: Integer;
-    function FindEditorID(const aEditorID: String; var rec: IwbMainRecord): Boolean;
-    function FindName(const aName: String; var rec: IwbMainRecord): Boolean;
-    function GetRecordByFormID(aFormID: Cardinal; aAllowInjected, aSearchMasters: Boolean): IwbMainRecord;
+    function GetRecordByFormID(aFormID: Cardinal; aAllowInjected: Boolean): IwbMainRecord;
     function GetRecordByEditorID(const aEditorID: string): IwbMainRecord;
-    function GetRecordByName(const aName: string): IwbMainRecord;
     function GetLoadOrder: Integer;
     procedure ForceLoadOrder(aValue: Integer);
     function GetGroupBySignature(const aSignature: TwbSignature): IwbGroupRecord;
     function HasGroup(const aSignature: TwbSignature): Boolean;
     function GetFileStates: TwbFileStates;
     procedure BuildReachable;
-    procedure SetIsEditable(state: Boolean);
 
     function LoadOrderFormIDtoFileFormID(aFormID: Cardinal): Cardinal;
     function FileFormIDtoLoadOrderFormID(aFormID: Cardinal): Cardinal;
@@ -827,17 +802,8 @@ type
     function GetHasNoFormID: Boolean;
     procedure SetHasNoFormID(Value: Boolean);
 
-    procedure RecordsBySignature(var aList: TDynMainRecords; aSignature: String; var len: Integer; aCondition: TConditionFunc = nil);
-
-    procedure SortEditorIDs(aSignature: String);
-    function EditorIDSorted(aSignature: String): Boolean;
-
-    procedure SortNames(aSignature: String);
-    function NamesSorted(aSignature: String): Boolean;
-
     property FileName: string
-      read GetFileName
-      write SetFileName;
+      read GetFileName;
     property UnsavedSince: TDateTime
       read GetUnsavedSince;
 
@@ -847,12 +813,10 @@ type
     property MasterCount: Integer
       read GetMasterCount;
 
-    property RecordByFormID[aFormID: Cardinal; aAllowInjected, aSearchMasters: Boolean]: IwbMainRecord
+    property RecordByFormID[aFormID: Cardinal; aAllowInjected: Boolean]: IwbMainRecord
       read GetRecordByFormID;
     property RecordByEditorID[const aEditorID: string]: IwbMainRecord
       read GetRecordByEditorID;
-    property RecordByName[const aName: string]: IwbMainRecord
-      read GetRecordByName;
      property GroupBySignature[const aSignature: TwbSignature]: IwbGroupRecord
       read GetGroupBySignature;
 
@@ -970,6 +934,8 @@ type
     x, y: Integer;
   end;
 
+  TDynMainRecords = array of IwbMainRecord;
+
   IwbMainRecord = interface(IwbRecord)
     ['{F06FD5E2-621D-4422-BA00-CB3CA72B3691}']
     function GetFormID: Cardinal;
@@ -994,7 +960,6 @@ type
     function GetIsWinningOverride: Boolean;
     function GetWinningOverride: IwbMainRecord;
     function GetHighestOverrideOrSelf(aMaxLoadOrder: Integer): IwbMainRecord;
-    function GetInjectionTarget: IwbFile;
     function GetFlags: TwbMainRecordStructFlags;
     function GetChildGroup: IwbGroupRecord;
     function EnsureChildGroup: IwbGroupRecord;
@@ -1041,10 +1006,6 @@ type
 
     function GetFormVersion: Cardinal;
     procedure SetFormVersion(aFormVersion: Cardinal);
-    function GetFormVCS1: Cardinal;
-    procedure SetFormVCS1(aVCS: Cardinal);
-    function GetFormVCS2: Cardinal;
-    procedure SetFormVCS2(aVCS: Cardinal);
 
     procedure ChangeFormSignature(aSignature: TwbSignature);
     procedure ClampFormID(aIndex: Cardinal);
@@ -1052,12 +1013,6 @@ type
     property Version: Cardinal
       read GetFormVersion
       write SetFormVersion;
-    property VCS1: Cardinal
-      read GetFormVCS1
-      write SetFormVCS1;
-    property VCS2: Cardinal
-      read GetFormVCS2
-      write SetFormVCS2;
 
     property BaseRecord: IwbMainRecord
       read GetBaseRecord;
@@ -1105,9 +1060,6 @@ type
       read GetWinningOverride;
     property HighestOverrideOrSelf[aMaxLoadOrder: Integer]: IwbMainRecord
       read GetHighestOverrideOrSelf;
-
-    property InjectionTarget: IwbFile
-      read GetInjectionTarget;
 
     property ReferencedBy[aIndex: Integer]: IwbMainRecord
       read GetReferencedBy;
@@ -1200,11 +1152,9 @@ type
     function FindChildGroup(aType: Integer; aMainRecord: IwbMainRecord): IwbGroupRecord;
 
     function GetMainRecordByEditorID(const aEditorID: string): IwbMainRecord;
-    function GetMainRecordByName(const aName: string): IwbMainRecord;
     function GetMainRecordByFormID(const aFormID: Cardinal): IwbMainRecord;
 
     procedure AddElement(const aElement: IwbElement);
-    function AddGroup(const aName: string): IwbGroupRecord;
 
     property GroupType: Integer
       read GetGroupType;
@@ -1217,8 +1167,6 @@ type
 
     property MainRecordByEditorID[const aEditorID: string]: IwbMainRecord
       read GetMainRecordByEditorID;
-    property MainRecordByName[const aName: string]: IwbMainRecord
-      read GetMainRecordByName;
     property MainRecordByFormID[const aFormID: Cardinal]: IwbMainRecord
       read GetMainRecordByFormID;
   end;
@@ -1644,8 +1592,6 @@ type
   IwbFormID = interface(IwbIntegerDefFormater)
     ['{71C4A255-B983-488C-9837-0A720132348A}']
     function GetMainRecord(aInt: Int64; const aElement: IwbElement): IwbMainRecord;
-    function Assign(const aTarget : IwbElement; aIndex  : Integer;
-                    const aSource : IwbElement; aOnlySK : Boolean): IwbElement;
   end;
 
   IwbRefID = interface(IwbFormID)
@@ -1809,7 +1755,6 @@ type
     procedure ContainerResourceList(const aContainerName: string; const aList: TStrings;
       const aFolder: string = '');
     function ResourceExists(const aFileName: string): Boolean;
-    function GetResourceContainer(const aFileName: string): String;
     function ResourceCount(const aFileName: string; aContainers: TStrings = nil): Integer;
     procedure ResourceCopy(const aContainerName, aFileName, aPathOut: string);
   end;
@@ -3167,13 +3112,12 @@ var
   wbSizeOfMainRecordStruct : Integer;
 
 type
-  TwbGameMode   = (gmFNV, gmFO3, gmTES3, gmTES4, gmTES5, gmTES5VR, gmSSE, gmFO4, gmFO4VR);
+  TwbGameMode   = (gmFNV, gmFO3, gmTES3, gmTES4, gmTES5, gmSSE, gmFO4);
   TwbToolMode   = (tmView, tmEdit, tmDump, tmExport, tmMasterUpdate, tmMasterRestore, tmLODgen, tmScript,
                     tmTranslate, tmESMify, tmESPify, tmSortAndCleanMasters,
                     tmCheckForErrors, tmCheckForITM, tmCheckForDR);
   TwbToolSource = (tsPlugins, tsSaves);
   TwbSetOfMode  = set of TwbToolMode;
-  TwbSetOfSource  = set of TwbToolSource;
 
 var
   wbGameMode    : TwbGameMode;
@@ -3181,13 +3125,12 @@ var
   wbToolSource  : TwbToolSource;
   wbAppName     : string;
   wbGameName    : string;
-  wbGameName2   : string; // game title name used for AppData and MyGames folders
-  wbGameNameReg : string; // registry name
+  wbGameName2   : string; // game title name
   wbToolName    : string;
   wbSourceName  : String;
   wbLanguage    : string;
   wbAutoModes   : TwbSetOfMode = [ tmMasterUpdate, tmMasterRestore, tmLODgen, // Tool modes that run without user interaction until final status
-                    tmESMify, tmESPify, tmSortAndCleanMasters, tmScript,
+                    tmESMify, tmESPify, tmSortAndCleanMasters,
                     tmCheckForErrors, tmCheckForITM, tmCheckForDR ];
   wbPluginModes : TwbSetOfMode = [ tmESMify, tmESPify, tmSortAndCleanMasters,
                                    tmCheckForErrors, tmCheckForITM, tmCheckForDR ];  // Auto modes that require a specific plugin to be provided.
@@ -3196,10 +3139,6 @@ var
 
 function wbDefToName(const aDef: IwbDef): string;
 function wbDefsToPath(const aDefs: TwbDefPath): string;
-function wbIsSkyrim: Boolean;
-function wbIsFallout3: Boolean;
-function wbIsFallout4: Boolean;
-function wbIsEslSupported: Boolean;
 
 procedure ReportDefs;
 
@@ -3265,7 +3204,6 @@ procedure wbEndInternalEdit;
 function wbIsInternalEdit: Boolean;
 
 function StrToSignature(const s: string): TwbSignature;
-function IntToSignature(aInt: Cardinal): TwbSignature; inline;
 function wbStringToAnsi(const aString: string; const aElement: IwbElement): AnsiString;
 function wbAnsiToString(const aString: AnsiString; const aElement: IwbElement): string;
 
@@ -3296,6 +3234,7 @@ var
   wbTerminator        : Byte = Ord('|');
   wbPlayerRefID       : Cardinal = $14;
   wbChangedFormOffset : Integer = 10000;
+  wbOfficialDLC       : array of string;
 
 type
   {$IFDEF WIN32}
@@ -3338,11 +3277,6 @@ begin
     Result := PwbSignature(@t[1])^
   else
     raise Exception.Create('"'+t+'" is not a valid signature');
-end;
-
-function IntToSignature(aInt: Cardinal): TwbSignature; inline;
-begin
-  Result := PwbSignature(@aInt)^;
 end;
 
 function IsTranslatable(const aElement: IwbElement): Boolean;
@@ -3511,26 +3445,6 @@ begin
     wbRecordDefs[i].rdeDef.Report(nil);
 end;
 
-function wbIsSkyrim: Boolean; inline;
-begin
-  Result := wbGameMode in [gmTES5, gmTES5VR, gmSSE];
-end;
-
-function wbIsFallout3: Boolean; inline;
-begin
-  Result := wbGameMode in [gmFO3, gmFNV];
-end;
-
-function wbIsFallout4: Boolean; inline;
-begin
-  Result := wbGameMode in [gmFO4, gmFO4VR];
-end;
-
-function wbIsEslSupported: Boolean; inline;
-begin
-  Result := wbGameMode in [gmSSE, gmTES5VR, gmFO4, gmFO4VR];
-end;
-
 function wbDefToName(const aDef: IwbDef): string;
 var
   SignatureDef : IwbSignatureDef;
@@ -3568,7 +3482,6 @@ begin
       Result := Result + '['+IntToStr(aDefs[i].Index)+'] ';
   end;
 end;
-
 function wbIsInGridCell(const aPosition: TwbVector; const aGridCell: TwbGridCell): Boolean;
 var
   GridCell : TwbGridCell;
@@ -3732,7 +3645,7 @@ type
     function GetDefTypeName: string; virtual; abstract;
     function CanAssign(const aElement: IwbElement; aIndex: Integer; const aDef: IwbDef): Boolean; virtual;
     function Assign(const aTarget: IwbElement; aIndex: Integer; const aSource: IwbElement; aOnlySK: Boolean): IwbElement; virtual;
-    function GetDefID: NativeUInt;
+    function GetDefID: Cardinal;
     function Equals(const aDef: IwbDef): Boolean; reintroduce; virtual;
     function GetConflictPriority(const aElement: IwbElement): TwbConflictPriority; virtual;
     function GetConflictPriorityCanChange: Boolean; virtual;
@@ -4817,8 +4730,6 @@ type
 
     {---IwbFormID---}
     function GetMainRecord(aInt: Int64; const aElement: IwbElement): IwbMainRecord; virtual;
-    function Assign(const aTarget : IwbElement; aIndex  : Integer;
-                    const aSource : IwbElement; aOnlySK : Boolean): IwbElement;
   end;
 
   TwbRefID = class(TwbFormID, IwbRefID)
@@ -6957,9 +6868,9 @@ begin
   Result := Assigned(defGetCP);
 end;
 
-function TwbDef.GetDefID: NativeUInt;
+function TwbDef.GetDefID: Cardinal;
 begin
-  Result := NativeUInt(Self);
+  Result := Cardinal(Self);
 end;
 
 function TwbDef.GetDontShow(const aElement: IwbElement): Boolean;
@@ -8231,8 +8142,8 @@ var
 begin
   Result := 0;
   Buffer[3] := 0;
-  Buffer[2] := PByte(aBasePtr)^; aBasePtr := PByte(aBasePtr) + 1;
-  Buffer[1] := PByte(aBasePtr)^; aBasePtr := PByte(aBasePtr) + 1;
+  Buffer[2] := PByte(aBasePtr)^; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
+  Buffer[1] := PByte(aBasePtr)^; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
   Buffer[0] := PByte(aBasePtr)^;
   Move(Buffer, Result, SizeOf(Result));
 end;
@@ -8242,8 +8153,8 @@ var
   Buffer : array[0..3] of Byte;
 begin
   Move(aValue, Buffer, SizeOf(aValue));
-  PByte(aBasePtr)^ := Buffer[2]; aBasePtr := PByte(aBasePtr) + 1;
-  PByte(aBasePtr)^ := Buffer[1]; aBasePtr := PByte(aBasePtr) + 1;
+  PByte(aBasePtr)^ := Buffer[2]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
+  PByte(aBasePtr)^ := Buffer[1]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
   PByte(aBasePtr)^ := Buffer[0];
 end;
 
@@ -8289,18 +8200,18 @@ begin
     Move(aValue, Buffer, SizeOf(aValue));
     if Buffer[3] > 0 then begin // 4 bytes counter
       Buffer[3] := (Buffer[3] shl 2 ) or 3;
-      PByte(aBasePtr)^ := Buffer[3]; aBasePtr := PByte(aBasePtr) + 1;
-      PByte(aBasePtr)^ := Buffer[2]; aBasePtr := PByte(aBasePtr) + 1;
-      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := PByte(aBasePtr) + 1;
+      PByte(aBasePtr)^ := Buffer[3]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
+      PByte(aBasePtr)^ := Buffer[2]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
+      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
       PByte(aBasePtr)^ := Buffer[0];
     end else if Buffer[2] > 0 then begin
       Buffer[2] := (Buffer[3] shl 2 ) or 2;
-      PByte(aBasePtr)^ := Buffer[2]; aBasePtr := PByte(aBasePtr) + 1;
-      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := PByte(aBasePtr) + 1;
+      PByte(aBasePtr)^ := Buffer[2]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
+      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
       PByte(aBasePtr)^ := Buffer[0];
     end else if Buffer[1] > 0 then begin
       Buffer[1] := (Buffer[1] shl 2 ) or 1;
-      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := PByte(aBasePtr) + 1;
+      PByte(aBasePtr)^ := Buffer[1]; aBasePtr := Pointer(Cardinal(aBasePtr)+1);
       PByte(aBasePtr)^ := Buffer[0];
     end else begin
       Buffer[0] := (Buffer[0] shl 2 ) or 0;
@@ -8328,7 +8239,7 @@ var
   Value       : Int64;
 begin
   if Assigned(inFormater) then
-    if (NativeUInt(aEndPtr) - NativeUInt(aBasePtr)) >= GetExpectedLength then begin
+    if (Cardinal(aEndPtr) - Cardinal(aBasePtr)) >= GetExpectedLength then begin
       case inType of
         itU8:  Value := PByte(aBasePtr)^;
         itS8:  Value := PShortInt(aBasePtr)^;
@@ -8373,7 +8284,7 @@ var
   Value       : Int64;
 begin
   Result := '';
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetExpectedLength then begin
     if wbCheckExpectedBytes then
       Result := Format('Expected %d bytes of data, found %d', [GetExpectedLength , Len])
@@ -8583,7 +8494,7 @@ var
 begin
   Result := nil;
   if Assigned(inFormater) then
-    if (NativeUInt(aEndPtr) - NativeUInt(aBasePtr)) >= GetExpectedLength then begin
+    if (Cardinal(aEndPtr) - Cardinal(aBasePtr)) >= GetExpectedLength then begin
       case inType of
         itU8:  Value := PByte(aBasePtr)^;
         itS8:  Value := PShortInt(aBasePtr)^;
@@ -8611,7 +8522,7 @@ function TwbIntegerDef.GetSize(aBasePtr, aEndPtr: Pointer; const aElement: IwbEl
 begin
   if inType = it0 then
     Result := 0
-  else if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aBasePtr) < NativeUInt(aEndPtr)) then
+  else if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aBasePtr)<Cardinal(aEndPtr)) then
     case inType of
       itU8:  Result := SizeOf(Byte)+Ord(noTerminator);
       itS8:  Result := SizeOf(ShortInt)+Ord(noTerminator);
@@ -8725,7 +8636,7 @@ var
 const
   PlusMinus : array[Boolean] of string = ('+', '-');
 begin
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if (Len < GetExpectedLength) or (inType = it0) then
     Result := ''
   else begin
@@ -8757,7 +8668,7 @@ function TwbIntegerDef.ToInt(aBasePtr, aEndPtr: Pointer; const aElement: IwbElem
 var
   Len         : Cardinal;
 begin
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetExpectedLength then
     Result := 0
   else
@@ -8779,7 +8690,7 @@ end;
 
 function TwbIntegerDef.ToNativeValue(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement): Variant;
 begin
-  if (NativeUInt(aEndPtr) - NativeUInt(aBasePtr)) < GetExpectedLength then
+  if (Cardinal(aEndPtr) - Cardinal(aBasePtr)) < GetExpectedLength then
     VarClear(Result)
   else
     case inType of
@@ -8805,7 +8716,7 @@ var
 const
   PlusMinus : array[Boolean] of string = ('+', '-');
 begin
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetExpectedLength then
     if Assigned(inFormater) and inFormater.RequiresKey then
       Result := inFormater.ToSortKey(0, aElement)
@@ -8853,7 +8764,7 @@ begin
   if inType = it0 then
     Exit;
 
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetExpectedLength then begin
     if wbCheckExpectedBytes then
       Result := Format('<Error: Expected %d bytes of data, found %d>', [GetExpectedLength, Len])
@@ -9127,7 +9038,7 @@ begin
   CheckedContainer := False;
   ArrayContainer := nil;
 
-  if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr)) then begin
+  if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)) then begin
 //    wbProgressCallback('Found an array with a negative size! (1) '+IntToHex64(Cardinal(aBasePtr), 8)+
 //      ' > '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
     Exit;
@@ -9170,7 +9081,7 @@ begin
         for Index := 0 to Pred(Count) do begin
           Element := ArrayContainer.Elements[Index];
           if Supports(Element, IwbDataContainer, DataContainer) then begin
-            Size := NativeUInt(DataContainer.DataEndPtr) - NativeUInt(DataContainer.DataBasePtr);
+            Size := Cardinal(DataContainer.DataEndPtr)-Cardinal(DataContainer.DataBasePtr);
             Inc(Result, Size);
           end else begin
             KnownSize := False;
@@ -9182,7 +9093,7 @@ begin
 
       Index := 0;
       if not KnownSize then
-        while (Count > Index) and (NativeUInt(BasePtr) < NativeUInt(aEndPtr)) do begin
+        while (Count > Index) and (Cardinal(BasePtr) < Cardinal(aEndPtr)) do begin
           Element := ArrayContainer.Elements[Index];
           if not Assigned(Element) then begin
             if wbMoreInfoForIndex and (DebugHook <> 0) and Assigned(wbProgressCallback) then
@@ -9196,11 +9107,11 @@ begin
             Exit;
           end;
           Inc(Result, Size);
-          if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr)+Result) then begin
+          if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)+Result) then begin
 //            if Assigned(aBasePtr) and Assigned(aEndPtr) and (aEndPtr<>aBasePtr) then
 //              wbProgressCallback('Found an array with a negative size! (2) '+IntToHex64(Cardinal(aBasePtr)+Result, 8)+
 //                ' > '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
-            Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr) + Result;
+            Result := Cardinal(aEndPtr)-Cardinal(aBasePtr)+Result;
             Exit;
           end;
           if Assigned(BasePtr) then
@@ -9220,11 +9131,11 @@ begin
         Exit;
       end;
       Result := (Count * Size) + Prefix;
-      if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr) + Result) then begin
+      if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)+Result) then begin
 //        if Assigned(aBasePtr) and Assigned(aEndPtr) and (aEndPtr<>aBasePtr) then
 //          wbProgressCallback('Found a static array with a negative size! (3) '+IntToHex64(Cardinal(aBasePtr)+Result, 8)+
 //            ' > '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
-        Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+        Result := Cardinal(aEndPtr)-Cardinal(aBasePtr);
         Exit;
       end;
     end;
@@ -9415,10 +9326,10 @@ begin
       Exit;
     end;
   end;
-  if (NativeUInt(aBasePtr) > NativeUInt(aEndPtr)) then begin // if aBasePtr >= aEndPtr then no allocation (or error)
+  if (Cardinal(aBasePtr) > Cardinal(aEndPtr)) then begin // if aBasePtr >= aEndPtr then no allocation (or error)
 //    wbProgressCallback('Found a struct with a negative size! (1) '+IntToHex64(Cardinal(aBasePtr), 8)+
 //      ' > '+IntToHex64(Cardinal(aEndPtr), 8)+' for '+ noName);
-  end else if (not Assigned(aBasePtr) or (NativeUInt(aBasePtr) = NativeUInt(aEndPtr))) and (GetIsVariableSizeInternal) then begin
+  end else if (not Assigned(aBasePtr) or (Cardinal(aBasePtr) = Cardinal(aEndPtr))) and (GetIsVariableSizeInternal) then begin
     Result := 0; // assuming we would have called GetDefaultSize otherwise... GetDefaultSize(aBasePtr, aEndPtr, aElement);
   end else begin
     BasePtr := aBasePtr;
@@ -9432,11 +9343,11 @@ begin
           Break;
         end;
         Inc(Result, Size);
-        if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr)+Result) then begin
+        if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)+Result) then begin
 //          if Assigned(aBasePtr) and Assigned(aEndPtr) and (aEndPtr<>aBasePtr) then
 //          wbProgressCallback('Found a struct with a negative size! (2) '+IntToHex64(Cardinal(aBasePtr)+Size, 8)+
 //            ' < '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
-          Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+          Result := Cardinal(aEndPtr)-Cardinal(aBasePtr);
           Break;
         end;
         if Assigned(BasePtr) then
@@ -9450,11 +9361,11 @@ begin
           Break;
         end;
         Inc(Result, Size);
-        if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr)+Result) then begin
+        if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)+Result) then begin
 //          if Assigned(aBasePtr) and Assigned(aEndPtr) and (aEndPtr<>aBasePtr) then
 //            wbProgressCallback('Found a struct with a negative size! (2) '+IntToHex64(Cardinal(aBasePtr)+Result, 8)+
 //              ' > '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
-          Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+          Result := Cardinal(aEndPtr)-Cardinal(aBasePtr);
           Break;
         end;
         if Assigned(BasePtr) then
@@ -9529,15 +9440,15 @@ begin
         BasePtr := aBasePtr;
         for j := Low(stMembers) to Pred(SortMember) do begin
           Inc(PByte(BasePtr), stMembers[j].Size[BasePtr, aEndPtr, aElement]);
-          if NativeUInt(BasePtr) > NativeUInt(aEndPtr) then
+          if Cardinal(BasePtr) > Cardinal(aEndPtr) then
             BasePtr := aEndPtr;
         end;
 
-        EndPtr := PByte(BasePtr) + stMembers[SortMember].Size[BasePtr, aEndPtr, aElement];
+        EndPtr := Pointer( Cardinal(BasePtr) + Cardinal(stMembers[SortMember].Size[BasePtr, aEndPtr, aElement]) );
 
-        if NativeUInt(BasePtr) > NativeUInt(aEndPtr) then
+        if Cardinal(BasePtr) > Cardinal(aEndPtr) then
           BasePtr := aEndPtr;
-        if NativeUInt(EndPtr) > NativeUInt(aEndPtr) then
+        if Cardinal(EndPtr) > Cardinal(aEndPtr) then
           EndPtr := aEndPtr;
 
         Result := Result + stMembers[SortMember].ToSortKey(BasePtr, EndPtr, aElement, aExtended);
@@ -9556,15 +9467,15 @@ begin
           BasePtr := aBasePtr;
           for j := Low(stMembers) to Pred(SortMember) do begin
             Inc(PByte(BasePtr), stMembers[j].Size[BasePtr, aEndPtr, aElement]);
-            if NativeUInt(BasePtr) > NativeUInt(aEndPtr) then
+            if Cardinal(BasePtr) > Cardinal(aEndPtr) then
               BasePtr := aEndPtr;
           end;
 
-          EndPtr := PByte(BasePtr) + stMembers[SortMember].Size[BasePtr, aEndPtr, aElement];
+          EndPtr := Pointer( Cardinal(BasePtr) + Cardinal(stMembers[SortMember].Size[BasePtr, aEndPtr, aElement]) );
 
-          if NativeUInt(BasePtr) > NativeUInt(aEndPtr) then
+          if Cardinal(BasePtr) > Cardinal(aEndPtr) then
             BasePtr := aEndPtr;
-          if NativeUInt(EndPtr) > NativeUInt(aEndPtr) then
+          if Cardinal(EndPtr) > Cardinal(aEndPtr) then
             EndPtr := aEndPtr;
 
           Result := Result + stMembers[SortMember].ToSortKey(BasePtr, EndPtr, aElement, aExtended);
@@ -9577,11 +9488,11 @@ begin
   end else begin
     BasePtr := aBasePtr;
     for j := Low(stMembers) to High(stMembers) do begin
-      EndPtr := PByte(BasePtr) + stMembers[j].Size[BasePtr, aEndPtr, aElement];
+      EndPtr := Pointer( Cardinal(BasePtr) + Cardinal(stMembers[j].Size[BasePtr, aEndPtr, aElement]) );
 
-      if NativeUInt(BasePtr) > NativeUInt(aEndPtr) then
+      if Cardinal(BasePtr) > Cardinal(aEndPtr) then
         BasePtr := aEndPtr;
-      if NativeUInt(EndPtr) > NativeUInt(aEndPtr) then
+      if Cardinal(EndPtr) > Cardinal(aEndPtr) then
         EndPtr := aEndPtr;
 
       Result := Result + stMembers[j].ToSortKey(BasePtr, EndPtr, aElement, aExtended);
@@ -10507,7 +10418,7 @@ begin
       Result := 1 + Ord(noTerminator)
     else begin
       Result := Ord(noTerminator);
-      while NativeUInt(aBasePtr) < NativeUInt(aEndPtr) do begin
+      while Cardinal(aBasePtr) < Cardinal(aEndPtr) do begin
         Inc(Result);
         if PAnsiChar(aBasePtr)^ = #0 then
           Exit;
@@ -10551,7 +10462,7 @@ function TwbStringDef.ToStringNative(aBasePtr, aEndPtr: Pointer; const aElement:
 var
   aLen, Len : Cardinal;
 begin
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if sdSize > 0 then begin
     if Len > Cardinal(sdSize) then
       Len := sdSize;
@@ -10743,7 +10654,7 @@ end;
 
 function TwbFloatDef.GetSize(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement): Integer;
 begin
-  if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aBasePtr) >= NativeUInt(aEndPtr)) then
+  if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aBasePtr) >= Cardinal(aEndPtr)) then
     Result := Ord(noTerminator)
   else
     Result := GetDefaultSize(aBasePtr, aEndPtr, aElement)
@@ -10775,7 +10686,7 @@ var
   Len   : Cardinal;
   Value : Extended;
 begin
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetDefaultSize(aBasePtr, aEndPtr, aElement) then
     Result := NaN
   else if fdDouble then try
@@ -10893,7 +10804,7 @@ var
   Value : Extended;
 begin
   Result := '';
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetDefaultSize(aBasePtr, aEndPtr, aElement) then begin
     if wbCheckExpectedBytes then
       Result := Format('<Error: Expected %d bytes of data, found %d>', [GetDefaultSize(aBasePtr, aEndPtr, aElement), Len])
@@ -11114,7 +11025,7 @@ begin
     _File := aElement._File;
     if Assigned(_File) then begin
       try
-        MainRecord := _File.RecordByFormID[aInt, True, True];
+        MainRecord := _File.RecordByFormID[aInt, True];
         if Assigned(MainRecord) then
           Exit;
       except
@@ -11251,7 +11162,7 @@ begin
       CheckedFiles.Free;
     end;
   end else try
-    Result := _File.RecordByFormID[aInt, True, True];
+    Result := _File.RecordByFormID[aInt, True];
   except end;
 end;
 
@@ -11541,7 +11452,7 @@ begin
   if Assigned(aElement) then begin
     _File := aElement._File;
     if Assigned(_File) then try
-      Result := _File.RecordByFormID[aInt, True, True];
+      Result := _File.RecordByFormID[aInt, True];
     except end;
   end;
 end;
@@ -11554,19 +11465,8 @@ begin
   if Assigned(aElement) then begin
     _File := aElement._File;
     if Assigned(_File) then
-      Result := _File.RecordByFormID[aInt, True, True];
+      Result := _File.RecordByFormID[aInt, True];
   end;
-end;
-
-function TwbFormID.Assign(const aTarget: IwbElement; aIndex: Integer;
-  const aSource: IwbElement; aOnlySK: Boolean): IwbElement;
-var
-  sourceFormID, loadOrderFormID, targetFormID: Cardinal;
-begin
-  sourceFormID := aSource.NativeValue;
-  loadOrderFormID := aSource._File.FileFormIDtoLoadOrderFormID(sourceFormID);
-  targetFormID := aTarget._File.LoadOrderFormIDtoFileFormID(loadOrderFormID);
-  aTarget.SetNativeValue(targetFormID);
 end;
 
 function TwbFormID.IsValid(const aSignature: TwbSignature): Boolean;
@@ -11789,7 +11689,7 @@ begin
     _File := aElement._File;
     if Assigned(_File) then begin
       try
-        MainRecord := _File.RecordByFormID[aInt, True, True];
+        MainRecord := _File.RecordByFormID[aInt, True];
         if Assigned(MainRecord) then begin
           Result := MainRecord.Name;
           if wbReportMode then
@@ -11954,25 +11854,15 @@ begin
   aElement.RequestStorageChange(aBasePtr, aEndPtr, Length(Bytes)+Prefix);
 
   if Length(Bytes) > 0 then
-    Move(Bytes[0], Pointer(NativeUInt(aBasePtr) + Prefix)^, Length(Bytes));
+    Move(Bytes[0], Pointer(Cardinal(aBasePtr)+Prefix)^, Length(Bytes));
 end;
 
 procedure TwbByteArrayDef.FromNativeValue(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement; const aValue: Variant);
-const
-  vtBytes = 8209;
 var
   Bytes  : TBytes;
   Prefix : Integer;
 begin
-  if VarType(aValue) <> vtBytes then begin
-    SetLength(Bytes, 4);
-    Bytes[0] := Cardinal(aValue) shr 24;
-    Bytes[1] := Cardinal(aValue) shr 16;
-    Bytes[2] := Cardinal(aValue) shr 8;
-    Bytes[3] := Cardinal(aValue);
-  end
-  else
-    Bytes := aValue;
+  Bytes := aValue;
 
   case badSize of
     -1 : Prefix := SizeOf(Cardinal);
@@ -11987,7 +11877,7 @@ begin
   aElement.RequestStorageChange(aBasePtr, aEndPtr, Length(Bytes)+Prefix);
 
   if Length(Bytes) > 0 then
-    Move(Bytes[0], Pointer(NativeUInt(aBasePtr) + Prefix)^, Length(Bytes));
+    Move(Bytes[0], Pointer(Cardinal(aBasePtr)+Prefix)^, Length(Bytes));
 end;
 
 function TwbByteArrayDef.GetDefType: TwbDefType;
@@ -12022,7 +11912,7 @@ end;
 
 function TwbByteArrayDef.GetSize(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement): Integer;
 begin
-  if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aBasePtr) >= NativeUInt(aEndPtr)) then
+  if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aBasePtr) >= Cardinal(aEndPtr)) then
     Result := 0
   else if Assigned(badCountCallback) then
     Result := badCountCallback(aBasePtr, aEndPtr, aElement)
@@ -12180,11 +12070,11 @@ var
   Bytes: TBytes;
 begin
   case badSize of
-    -1 : aBasePtr := PByte(aBasePtr) + SizeOf(Cardinal);
-    -2 : aBasePtr := PByte(aBasePtr) + SizeOf(Word);
-    -4 : aBasePtr := PByte(aBasePtr) + SizeOf(Byte);
+    -1 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Cardinal));
+    -2 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Word));
+    -4 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Byte));
   end;
-  SetLength(Bytes, NativeUInt(aEndPtr) - NativeUInt(aBasePtr));
+  SetLength(Bytes, Cardinal(aEndPtr) - Cardinal(aBasePtr));
   if Length(Bytes) > 0 then
     Move(aBasePtr^, Bytes[0], Length(Bytes));
   Result := Bytes;
@@ -12214,12 +12104,12 @@ var
 begin
   Result := '';
   case badSize of
-    -1 : aBasePtr := PByte(aBasePtr) + SizeOf(Cardinal);
-    -2 : aBasePtr := PByte(aBasePtr) + SizeOf(Word);
-    -4 : aBasePtr := PByte(aBasePtr) + SizeOf(Byte);
+    -1 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Cardinal));
+    -2 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Word));
+    -4 : aBasePtr := Pointer(Cardinal(aBasePtr)+SizeOf(Byte));
   end;
   p := aBasePtr;
-  while NativeUInt(p) < NativeUInt(aEndPtr) do begin
+  while Cardinal(p) < Cardinal(aEndPtr) do begin
     Result := Result + IntToHex64(p^, 2) + ' ';
     Inc(p);
   end;
@@ -12232,12 +12122,12 @@ begin
       if wbReportUnknownFormIDs then begin
         p := aBasePtr;
         OffSet := 0;
-        while (NativeUInt(p)+3) < NativeUInt(aEndPtr) do begin
+        while (Cardinal(p)+3) < Cardinal(aEndPtr) do begin
           aInt := PCardinal(p)^;
           if (aInt <> $0) and (aInt <> $14) and ((Length(NotFoundFormIDAtOffSet) < Succ(OffSet)) or (NotFoundFormIDAtOffSet[Offset] < 1)) then begin
             MainRecord := nil;
             try
-              MainRecord := _File.RecordByFormID[aInt, True, True];
+              MainRecord := _File.RecordByFormID[aInt, True];
             except
               on E: Exception do begin
                 MainRecord := nil;
@@ -12283,7 +12173,7 @@ begin
       if wbReportUnknownFloats then begin
         p := aBasePtr;
         OffSet := 0;
-        while (NativeUInt(p)+3) < NativeUInt(aEndPtr) do begin
+        while (Cardinal(p)+3) < Cardinal(aEndPtr) do begin
           aInt := PCardinal(p)^;
           f := PSingle(p)^;
           if (aInt <> $0) and ((Length(NotFoundFloatAtOffSet) < Succ(OffSet)) or (NotFoundFloatAtOffSet[Offset] < 1)) then begin
@@ -12327,9 +12217,9 @@ begin
       if wbReportUnknownStrings then begin
         if (badSize < 1) and (NotFoundString < 1) then begin
           p := aBasePtr;
-          while (NativeUInt(p)) < NativeUInt(aEndPtr) do begin
+          while (Cardinal(p)) < Cardinal(aEndPtr) do begin
             if p^ < 32 then
-              if (Succ(NativeUInt(p)) = NativeUInt(aEndPtr)) and (p^ = 0) then begin
+              if (Succ(Cardinal(p)) = Cardinal(aEndPtr)) and (p^ = 0) then begin
                 s := PAnsiChar(aBasePtr);
                 if Length(s) > 4 then begin
                   Inc(FoundString);
@@ -12354,7 +12244,7 @@ begin
       end;
 
       if wbReportEmpty then begin
-        if (NativeUInt(aBasePtr)) < NativeUInt(aEndPtr) then
+        if (Cardinal(aBasePtr)) < Cardinal(aEndPtr) then
           Inc(IsNotEmpty)
         else
           Inc(IsEmpty);
@@ -12796,7 +12686,7 @@ begin
     _File := aElement._File;
     if Assigned(_File) then begin
       try
-        MainRecord := _File.RecordByFormID[aInt, True, True];
+        MainRecord := _File.RecordByFormID[aInt, True];
         if Assigned(MainRecord) then begin
           Found := MainRecord.Signature;
           if fidcValidRefs.IndexOf(Found) < 0 then
@@ -12893,11 +12783,9 @@ var
   Error: string;
 begin
   Result := inherited FromEditValue(aValue, aElement);
-  if not wbAllowErrors then begin
-    Error := Check(Result, aElement);
-    if Error <> '' then
-      raise Exception.Create(Error);
-  end;
+  Error := Check(Result, aElement);
+  if Error <> '' then
+    raise Exception.Create(Error);
 end;
 
 function TwbFormIDChecked.GetNoReach: Boolean;
@@ -13298,11 +13186,11 @@ begin
       Element := aElement;
     Result := aMember.Size[aBasePtr, aEndPtr, Element];
     if Result = High(Integer) then Exit;
-    if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aEndPtr) < NativeUInt(aBasePtr)+Result) then begin
+    if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aEndPtr)<Cardinal(aBasePtr)+Result) then begin
 //      if Assigned(aBasePtr) and Assigned(aEndPtr) and (aEndPtr<>aBasePtr) then
 //        wbProgressCallback('Found a union with a negative size! (2) '+IntToHex64(Cardinal(aBasePtr)+Result, 8)+
 //          ' > '+IntToHex64(Cardinal(aEndPtr), 8)+'  for '+noName);
-      Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+      Result := Cardinal(aEndPtr)-Cardinal(aBasePtr);
     end;
   end;
 end;
@@ -13619,7 +13507,7 @@ var
   Len  : Cardinal;
 begin
   Result := '';
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len < GetPrefixOffset then begin
     if wbCheckExpectedBytes then
       Result := Format('Expected at least %d bytes of data, found %d', [Abs(Prefix) , Len]);
@@ -13667,7 +13555,7 @@ begin
   NewSize := Len + GetPrefixOffset;
   aElement.RequestStorageChange(aBasePtr, aEndPtr, NewSize + Ord(noTerminator));
   SetPrefixValue(aBasePtr, aEndPtr, aElement, Len);
-  p := PByte(aBasePtr) + GetPrefixOffset;
+  p := Pointer(Cardinal(aBasePtr) + GetPrefixOffset);
   if Len > 0 then
     Move(s[1], p^, Len);
   if noTerminator then begin
@@ -13736,10 +13624,10 @@ var
   Len : Integer;
 begin
   if Assigned(aBasePtr) and Assigned(aEndPtr) then
-    if (NativeUInt(aBasePtr) >= NativeUInt(aEndPtr)) then
+    if (Cardinal(aBasePtr) >= Cardinal(aEndPtr)) then
       Result := 0
     else begin
-      Result := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+      Result := Cardinal(aEndPtr) - Cardinal(aBasePtr);
       Len := GetPrefixValue(aBasePtr, aEndPtr, aElement);
       if Len>0 then
         Len := Len+GetPrefixOffset+Ord(noTerminator)
@@ -13793,7 +13681,7 @@ var
   s    : AnsiString;
 begin
   s := '';
-  Len := NativeUInt(aEndPtr) - NativeUInt(aBasePtr);
+  Len := Cardinal(aEndPtr) - Cardinal(aBasePtr);
   if Len<GetPrefixOffset+Ord(noTerminator) then
     Exit;
 
@@ -13891,10 +13779,10 @@ end;
 
 function TwbLStringDef.GetSize(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement): Integer;
 begin
-  if Assigned(aBasePtr) and Assigned(aEndPtr) and (NativeUInt(aBasePtr) >= NativeUInt(aEndPtr)) then
+  if Assigned(aBasePtr) and Assigned(aEndPtr) and (Cardinal(aBasePtr) >= Cardinal(aEndPtr)) then
     Result := 0
   else if Assigned(aBasePtr) and Assigned(aEndPtr) and Assigned(aElement._File) and aElement._File.IsLocalized then
-    Result := Min(4, NativeUInt(aEndPtr) - NativeUInt(aBasePtr))
+    Result := Min(4, Cardinal(aEndPtr) - Cardinal(aBasePtr))
   else
     Result := inherited GetSize(aBasePtr, aEndPtr, aElement);
 end;
@@ -13910,7 +13798,7 @@ end;
 function TwbLStringDef.ToStringNative(aBasePtr, aEndPtr: Pointer; const aElement: IwbElement): AnsiString;
 begin
   if Assigned(aElement._File) and aElement._File.IsLocalized then begin
-    if (NativeUInt(aEndPtr) - NativeUInt(aBasePtr)) <> 4 then
+    if (Cardinal(aEndPtr) - Cardinal(aBasePtr)) <> 4 then
       Result := '< Error: lstring ID should be Int32 value >'
     else
       Result := wbStringToAnsi(wbLocalizationHandler.GetValue(PCardinal(aBasePtr)^, aElement), aElement)
@@ -14897,11 +14785,10 @@ initialization
 
   wbProgramPath := IncludeTrailingPathDelimiter(ExtractFilePath(ParamStr(0)));
 
-  SetLength(wbPluginExtensions, 4);
+  SetLength(wbPluginExtensions, 3);
   wbPluginExtensions[0] := '.ESP';
   wbPluginExtensions[1] := '.ESM';
-  wbPluginExtensions[2] := '.ESL';
-  wbPluginExtensions[3] := '.GHOST';
+  wbPluginExtensions[2] := '.GHOST';
 
 finalization
   FreeAndNil(wbIgnoreRecords);
