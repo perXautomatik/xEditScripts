@@ -3,7 +3,7 @@ unit Mahogany;
 interface
 
 uses
-  SysUtils, Classes, Variants, Diagnostics;
+  SysUtils, Classes, Variants;
 
 type
   TProc = reference to procedure;
@@ -46,16 +46,14 @@ type
   TFailure = class(TObject)
   public
     context: TTest;
-    message: String;
+    exception: Exception;
 
     constructor Create(context: TTest; exception: Exception);
     procedure MarkContextFailed;
-    function ToString: String; override;
   end;
 
   // PUBLIC API
   procedure TestComment(comment: String);
-  procedure Benchmark(times: Integer; callback: TProc);
   procedure Describe(description: String; callback: TProc);
   procedure BeforeAll(callback: TProc);
   procedure AfterAll(callback: TProc);
@@ -67,7 +65,6 @@ type
   procedure ExpectException(proc: TProc; msg: String = '');
   procedure RunTests(messageProc: TMessageProc);
   procedure ReportResults(messageProc: TMessageProc);
-  procedure FreeTests;
 
   // PRIVATE
   procedure CannotCallException(target, context: String);
@@ -85,7 +82,7 @@ implementation
 
 {******************************************************************************}
 { Public API
-  These functions provide the public API for Mahogany.
+  These functions provide the public API for Vermilion.
 }
 {******************************************************************************}
 
@@ -96,23 +93,6 @@ var
 begin
   spacing := StringOfChar(' ', (ActiveSuite.depth + 2) * 2);
   LogMessage(spacing + comment);
-end;
-
-procedure Benchmark(times: Integer; callback: TProc);
-var
-  stopwatch: TStopWatch;
-  duration: Double;
-  i: Integer;
-begin
-  stopwatch := TStopWatch.StartNew;
-  for i := 1 to times do
-    callback();
-  duration := stopwatch.Elapsed.TotalMilliseconds;
-  TestComment(Format('Completed in %0.3fms', [duration]));
-  if duration / times > 1.0 then
-    TestComment(Format('%0.3fms per call', [duration / times]))
-  else
-    TestComment(Format('%0.3fus per call', [(duration / times) * 1000]));
 end;
 
 { Suite Functions }
@@ -224,32 +204,17 @@ begin
   end;
 end;
 
-procedure FreeTests;
-var
-  i: Integer;
-  suite: TSuite;
-begin
-  for i := Pred(MainSuites.Count) downto 0 do begin
-    suite := TSuite(MainSuites[i]);
-    suite.Free;
-  end;
-end;
-
 procedure ReportResults(messageProc: TMessageProc);
 const
   ReportMessage = '%d specs, %d failures';
-var
-  i: Integer;
 begin
   messageProc(Format(ReportMessage, [GetSpecsCount, Failures.Count]));
-  for i := 0 to Pred(Failures.Count) do
-    messageProc('  ' + TFailure(Failures[i]).ToString);
 end;
 
 
 {******************************************************************************}
 { Private
-  These functions are private to Mahogany.  You should not call them from
+  These functions are private to Vermilion.  You should not call them from
   your code.
 }
 {******************************************************************************}
@@ -305,15 +270,15 @@ constructor TSuite.Create(description: String; callback: TProc);
 begin
   // default to a to-level suite
   context := nil;
-  depth := 0;
+  depth := 0;  
 
   // suites can be nested inside of each other
   if Assigned(ActiveSuite) then begin
     context := TTest(ActiveSuite);
     depth := ActiveSuite.depth + 1;
     ActiveSuite.AddChild(TTest(self));
-  end;
-
+  end; 
+  
   // set input properties
   self.description := description;
   children := TList.Create;
@@ -411,27 +376,17 @@ begin
 end;
 
 destructor TSuite.Destroy;
-var
-  i: Integer;
-  test: TTest;
 begin
-  for i := Pred(children.Count) downto 0 do begin
-    test := TTest(children[i]);
-    if test is TSuite then
-      TSuite(test).Free
-    else if test is TSpec then
-      TSpec(test).Free;
-  end;
   children.Free;
   inherited;
 end;
 
 { TSpec }
 constructor TSpec.Create(description: String; callback: TProc; failAll: Boolean);
-begin
+begin                
   // enumerate the spec in the active suite's children
   context := ActiveSuite as TTest;
-  depth := ActiveSuite.depth + 1;
+  depth := ActiveSuite.depth + 1;  
   ActiveSuite.AddChild(self as TTest);
   // set input properties
   self.description := description;
@@ -465,7 +420,7 @@ begin
     LogMessage(spacing + 'FAILED: ' + exception.message);
   end;
   self.context := context;
-  self.message := exception.message;
+  self.exception := exception; 
   MarkContextFailed;
   Failures.Add(self);
 end;
@@ -478,33 +433,19 @@ var
   currentContext: TTest;
   i: Integer;
 begin
-  // prepare to loop
+  // prepare to loop 
   currentContext := self.context;
   i := 1;
 
   // loop from the failure's context up the stack
   while Assigned(currentContext) do begin
     currentContext.passed := false;
-    // recurse until we've gone up the maximum test depth
+    // recurse until we've gone up the maximum test depth 
     // this saves us from an infinite loop if there is a recursive context
-    currentContext := currentContext.context;
-    if (i = maxTestDepth) then
+    currentContext := currentContext.context;  
+    if (i = maxTestDepth) then 
       raise Exception.Create(MaxTestDepthError);
     Inc(i);
-  end;
-end;
-
-function TFailure.ToString: String;
-var
-  currentContext: TTest;
-begin
-  Result := self.message;
-  if Result = '' then
-    Result := 'FAILED';
-  currentContext := self.context;
-  while Assigned(currentContext) do begin
-    Result := currentContext.description + ' > ' + Result;
-    currentContext := currentContext.context;
   end;
 end;
 
@@ -518,8 +459,6 @@ end;
 
 finalization
 begin
-  FreeTests;
-  ActiveSuite := nil;
   MainSuites.Free;
   Failures.Free;
 end;
