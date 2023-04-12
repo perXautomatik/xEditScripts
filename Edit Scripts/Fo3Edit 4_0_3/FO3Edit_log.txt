@@ -1,0 +1,697 @@
+FO3Edit 4.0.3 (819FA7E8) starting session 2021-12-11 09:28:12
+Using Fallout3 Data Path: D:\Steam\steamapps\common\Fallout 3 goty\Data\
+Using Backup Path: D:\Steam\steamapps\common\Fallout 3 goty\Data\FO3Edit Backups\
+Using Scripts Path: D:\Steam\steamapps\common\Fallout 3 goty\Edit Scripts\
+Using Cache Path: D:\Steam\steamapps\common\Fallout 3 goty\Data\FO3Edit Cache\
+Using ini: C:\Users\dator\Documents\My Games\Fallout3\Fallout.ini
+Using save path: C:\Users\dator\Documents\My Games\Fallout3\Saves\9E0y18tTR\
+Warning: Could not find save path
+Using plugin list: C:\Users\dator\AppData\Local\Fallout3\Plugins.txt
+Using settings file: C:\Users\dator\AppData\Local\Fallout3\Plugins.fo3viewsettings
+Using language: English
+Using general string encoding: 1252  (ANSI - Latin I)
+Using translatable string encoding: 1252  (ANSI - Latin I)
+Loading active plugin list: C:\Users\dator\AppData\Local\Fallout3\Plugins.txt
+[00:00] Background Loader: starting...
+[00:00] Background Loader: [ArchiveInvalidationInvalidated!.bsa] Skipped.
+[00:00] Background Loader: [Fallout - Textures.bsa] Skipped.
+[00:00] Background Loader: [Fallout - Meshes.bsa] Skipped.
+[00:00] Background Loader: [Fallout - Voices.bsa] Skipped.
+[00:00] Background Loader: [Fallout - Sound.bsa] Skipped.
+[00:00] Background Loader: [Fallout - MenuVoices.bsa] Skipped.
+[00:00] Background Loader: [Fallout - Misc.bsa] Skipped.
+[00:00] Background Loader: Warning: <Can't find Vortex - BSA Redirection.bsa>
+[00:00] Background Loader: [Anchorage - Main.bsa] Skipped.
+[00:00] Background Loader: [Anchorage - Sounds.bsa] Skipped.
+[00:00] Background Loader: [ThePitt - Main.bsa] Skipped.
+[00:00] Background Loader: [ThePitt - Sounds.bsa] Skipped.
+[00:00] Background Loader: [BrokenSteel - Main.bsa] Skipped.
+[00:00] Background Loader: [BrokenSteel - Sounds.bsa] Skipped.
+[00:00] Background Loader: [PointLookout - Main.bsa] Skipped.
+[00:00] Background Loader: [PointLookout - Sounds.bsa] Skipped.
+[00:00] Background Loader: [Zeta - Main.bsa] Skipped.
+[00:00] Background Loader: [Zeta - Sounds.bsa] Skipped.
+[00:00] Background Loader: [D:\Steam\steamapps\common\Fallout 3 goty\Data\] Setting Resource Path.
+[00:00] Background Loader: loading "Fallout3.esm"...
+[00:00] Background Loader: [Fallout3.esm] Loading file
+[00:00] Background Loader: [Fallout3.esm] File loaded (CRC32:C092218B)
+[00:00] Background Loader: [Fallout3.esm] Start processing
+[00:00] Background Loader: [Fallout3.esm] Header processed. Expecting 808699 records
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "GMST" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "TXST" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "MICN" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "GLOB" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "CLAS" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "FACT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "HDPT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "HAIR" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "EYES" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "RACE" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "SOUN" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "ASPC" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "MGEF" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "SCPT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "LTEX" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "ENCH" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "SPEL" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "ACTI" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "TACT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "TERM" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "ARMO" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "BOOK" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "CONT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "DOOR" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "INGR" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "LIGH" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "MISC" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "STAT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "SCOL" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "MSTT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "PWAT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "GRAS" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "TREE" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "FURN" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "WEAP" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "AMMO" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "NPC_" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "CREA" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "LVLC" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "LVLN" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "KEYM" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "ALCH" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "IDLM" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "NOTE" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "COBJ" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "PROJ" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "LVLI" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "WTHR" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "CLMT" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "REGN" processed
+[00:00] Background Loader: [Fallout3.esm] GRUP Top "NAVI" processed
+[00:01] Background Loader: [Fallout3.esm] GRUP Top "CELL" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "WRLD" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "DIAL" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "QUST" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "IDLE" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "PACK" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "CSTY" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "LSCR" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "ANIO" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "WATR" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "EFSH" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "EXPL" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "DEBR" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "IMGS" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "IMAD" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "FLST" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "PERK" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "BPTD" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "ADDN" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "AVIF" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "RADS" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "CAMS" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "CPTH" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "VTYP" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "IPCT" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "IPDS" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "ARMA" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "ECZN" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "MESG" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "RGDL" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "DOBJ" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "LGTM" processed
+[00:03] Background Loader: [Fallout3.esm] GRUP Top "MUSC" processed
+[00:03] Background Loader: [Fallout3.esm] Building FormID index
+[00:03] Background Loader: [Fallout3.esm] FormID index built
+[00:03] Background Loader: [Fallout3.esm] Building EditorID index
+[00:03] Background Loader: [Fallout3.esm] EditorID index built
+[00:03] Background Loader: [Fallout3.esm] Processing completed
+[00:03] Background Loader: loading "Fallout3.exe"...
+[00:03] Background Loader: [Fallout3.exe] Loading file
+[00:03] Background Loader: [Fallout3.exe] File loaded (CRC32:281676CF)
+[00:03] Background Loader: [Fallout3.exe] Start processing
+[00:03] Background Loader: [Fallout3.exe] Adding master "Fallout3.esm"
+[00:03] Background Loader: [Fallout3.exe] Header processed. Expecting 56 records
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "MICN" processed
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "GLOB" processed
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "MGEF" processed
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "STAT" processed
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "AVIF" processed
+[00:03] Background Loader: [Fallout3.exe] GRUP Top "ECZN" processed
+[00:03] Background Loader: [Fallout3.exe] Building FormID index
+[00:03] Background Loader: [Fallout3.exe] FormID index built
+[00:03] Background Loader: [Fallout3.exe] Building EditorID index
+[00:03] Background Loader: [Fallout3.exe] EditorID index built
+[00:03] Background Loader: [Fallout3.exe] Processing completed
+[00:03] Background Loader: loading "Anchorage.esm"...
+[00:03] Background Loader: [Anchorage.esm] Loading file
+[00:03] Background Loader: [Anchorage.esm] File loaded (CRC32:A4BA9D10)
+[00:03] Background Loader: [Anchorage.esm] Start processing
+[00:03] Background Loader: [Anchorage.esm] Adding master "Fallout3.esm"
+[00:03] Background Loader: [Anchorage.esm] Header processed. Expecting 46887 records
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "TXST" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "GLOB" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CLAS" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "FACT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "SOUN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ASPC" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "MGEF" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "SCPT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LTEX" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ENCH" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "SPEL" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ACTI" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "TACT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "TERM" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ARMO" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CONT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "DOOR" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LIGH" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "MISC" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "STAT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "SCOL" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "MSTT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "FURN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "WEAP" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "NPC_" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CREA" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LVLC" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LVLN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "IDLM" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "NOTE" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "PROJ" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LVLI" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "WTHR" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CLMT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "REGN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "NAVI" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CELL" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "WRLD" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "DIAL" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "QUST" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "IDLE" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "PACK" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "CSTY" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LSCR" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ANIO" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "WATR" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "EFSH" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "EXPL" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "DEBR" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "IMGS" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "IMAD" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "FLST" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "PERK" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "BPTD" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ADDN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "VTYP" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "IPCT" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ARMA" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "ECZN" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "MESG" processed
+[00:03] Background Loader: [Anchorage.esm] GRUP Top "LGTM" processed
+[00:03] Background Loader: [Anchorage.esm] Building FormID index
+[00:03] Background Loader: [Anchorage.esm] FormID index built
+[00:03] Background Loader: [Anchorage.esm] Building EditorID index
+[00:03] Background Loader: [Anchorage.esm] EditorID index built
+[00:03] Background Loader: [Anchorage.esm] Processing completed
+[00:03] Background Loader: loading "ThePitt.esm"...
+[00:03] Background Loader: [ThePitt.esm] Loading file
+[00:03] Background Loader: [ThePitt.esm] File loaded (CRC32:B38B3E44)
+[00:03] Background Loader: [ThePitt.esm] Start processing
+[00:03] Background Loader: [ThePitt.esm] Adding master "Fallout3.esm"
+[00:03] Background Loader: [ThePitt.esm] Header processed. Expecting 36013 records
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "TXST" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "GLOB" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "FACT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "EYES" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "RACE" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "SOUN" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ASPC" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "MGEF" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "SCPT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "LTEX" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ENCH" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "SPEL" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ACTI" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "TACT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "TERM" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ARMO" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "CONT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "DOOR" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "LIGH" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "MISC" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "STAT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "SCOL" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "MSTT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "PWAT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "FURN" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "WEAP" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "AMMO" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "NPC_" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "CREA" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "LVLC" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "LVLN" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "KEYM" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ALCH" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "IDLM" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "NOTE" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "PROJ" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "LVLI" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "WTHR" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "CLMT" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "REGN" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "NAVI" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "CELL" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "WRLD" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "DIAL" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "QUST" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "IDLE" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "PACK" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "CSTY" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ANIO" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "WATR" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "IMGS" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "IMAD" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "FLST" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "PERK" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "BPTD" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "VTYP" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ARMA" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "ECZN" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "MESG" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "RGDL" processed
+[00:03] Background Loader: [ThePitt.esm] GRUP Top "MUSC" processed
+[00:03] Background Loader: [ThePitt.esm] Building FormID index
+[00:03] Background Loader: [ThePitt.esm] FormID index built
+[00:03] Background Loader: [ThePitt.esm] Building EditorID index
+[00:03] Background Loader: [ThePitt.esm] EditorID index built
+[00:03] Background Loader: [ThePitt.esm] Processing completed
+[00:03] Background Loader: loading "BrokenSteel.esm"...
+[00:03] Background Loader: [BrokenSteel.esm] Loading file
+[00:03] Background Loader: [BrokenSteel.esm] File loaded (CRC32:30011B79)
+[00:03] Background Loader: [BrokenSteel.esm] Start processing
+[00:03] Background Loader: [BrokenSteel.esm] Adding master "Fallout3.esm"
+[00:03] Background Loader: [BrokenSteel.esm] Header processed. Expecting 43505 records
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "GMST" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "TXST" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "GLOB" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "FACT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "SOUN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ASPC" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "MGEF" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "SCPT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LTEX" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ENCH" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "SPEL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ACTI" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "TACT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "TERM" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ARMO" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "CONT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "DOOR" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LIGH" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "MISC" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "STAT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "SCOL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "MSTT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "PWAT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "FURN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "WEAP" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "NPC_" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "CREA" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LVLC" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LVLN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "KEYM" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ALCH" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "IDLM" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "NOTE" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "PROJ" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LVLI" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "WTHR" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "CLMT" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "REGN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "NAVI" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "CELL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "WRLD" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "DIAL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "QUST" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "IDLE" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "PACK" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ANIO" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "WATR" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "EFSH" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "EXPL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "DEBR" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "IMGS" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "IMAD" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "FLST" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "PERK" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "BPTD" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ADDN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "VTYP" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ARMA" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "ECZN" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "MESG" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "RGDL" processed
+[00:03] Background Loader: [BrokenSteel.esm] GRUP Top "LGTM" processed
+[00:03] Background Loader: [BrokenSteel.esm] Building FormID index
+[00:03] Background Loader: [BrokenSteel.esm] FormID index built
+[00:03] Background Loader: [BrokenSteel.esm] Building EditorID index
+[00:03] Background Loader: [BrokenSteel.esm] EditorID index built
+[00:03] Background Loader: [BrokenSteel.esm] Processing completed
+[00:03] Background Loader: loading "PointLookout.esm"...
+[00:03] Background Loader: [PointLookout.esm] Loading file
+[00:03] Background Loader: [PointLookout.esm] File loaded (CRC32:D92704D8)
+[00:03] Background Loader: [PointLookout.esm] Start processing
+[00:03] Background Loader: [PointLookout.esm] Adding master "Fallout3.esm"
+[00:03] Background Loader: [PointLookout.esm] Header processed. Expecting 68565 records
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "TXST" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "FACT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "RACE" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "SOUN" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "ASPC" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "MGEF" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "SCPT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "LTEX" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "ENCH" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "SPEL" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "ACTI" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "TACT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "TERM" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "ARMO" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "BOOK" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "CONT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "DOOR" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "LIGH" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "MISC" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "STAT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "SCOL" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "MSTT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "PWAT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "GRAS" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "FURN" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "WEAP" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "AMMO" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "NPC_" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "CREA" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "LVLC" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "LVLN" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "KEYM" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "ALCH" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "IDLM" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "NOTE" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "PROJ" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "LVLI" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "WTHR" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "CLMT" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "REGN" processed
+[00:03] Background Loader: [PointLookout.esm] GRUP Top "NAVI" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "CELL" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "WRLD" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "DIAL" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "QUST" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "IDLE" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "PACK" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "CSTY" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "LSCR" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "ANIO" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "WATR" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "EFSH" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "EXPL" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "DEBR" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "IMGS" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "IMAD" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "FLST" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "PERK" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "BPTD" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "VTYP" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "IPCT" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "IPDS" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "ARMA" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "ECZN" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "MESG" processed
+[00:04] Background Loader: [PointLookout.esm] GRUP Top "RGDL" processed
+[00:04] Background Loader: [PointLookout.esm] Building FormID index
+[00:04] Background Loader: [PointLookout.esm] FormID index built
+[00:04] Background Loader: [PointLookout.esm] Building EditorID index
+[00:04] Background Loader: [PointLookout.esm] EditorID index built
+[00:04] Background Loader: [PointLookout.esm] Processing completed
+[00:04] Background Loader: loading "Zeta.esm"...
+[00:04] Background Loader: [Zeta.esm] Loading file
+[00:04] Background Loader: [Zeta.esm] File loaded (CRC32:1D017E23)
+[00:04] Background Loader: [Zeta.esm] Start processing
+[00:04] Background Loader: [Zeta.esm] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Zeta.esm] Header processed. Expecting 37109 records
+[00:04] Background Loader: [Zeta.esm] GRUP Top "TXST" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "GLOB" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CLAS" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "FACT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "SOUN" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ASPC" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "MGEF" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ENCH" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "SPEL" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ACTI" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "TACT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "TERM" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ARMO" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CONT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "DOOR" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "LIGH" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "MISC" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "STAT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "SCOL" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "MSTT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "PWAT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "FURN" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "WEAP" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "AMMO" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "NPC_" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CREA" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "LVLC" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ALCH" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IDLM" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "NOTE" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "PROJ" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "LVLI" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "REGN" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "NAVI" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CELL" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "DIAL" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "QUST" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IDLE" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "PACK" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CSTY" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ANIO" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "WATR" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "EFSH" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "EXPL" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "DEBR" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IMGS" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IMAD" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "FLST" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "PERK" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "BPTD" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ADDN" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CAMS" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "CPTH" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "VTYP" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IPCT" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "IPDS" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ARMA" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "ECZN" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "MESG" processed
+[00:04] Background Loader: [Zeta.esm] GRUP Top "RGDL" processed
+[00:04] Background Loader: [Zeta.esm] Building FormID index
+[00:04] Background Loader: [Zeta.esm] FormID index built
+[00:04] Background Loader: [Zeta.esm] Building EditorID index
+[00:04] Background Loader: [Zeta.esm] EditorID index built
+[00:04] Background Loader: [Zeta.esm] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch.esm"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] File loaded (CRC32:A104CF58)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Header processed. Expecting 3083 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "GMST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "TXST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "HDPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "SOUN" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "MGEF" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "ENCH" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "SPEL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "ACTI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "TERM" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "ARMO" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "BOOK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "CONT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "DOOR" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "MISC" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "STAT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "MSTT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "WEAP" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "NPC_" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "CREA" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "KEYM" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "ALCH" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "NOTE" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "PROJ" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "LVLI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "NAVI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "CELL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "DIAL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "QUST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "IDLE" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "PACK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "IMAD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "FLST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "PERK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "BPTD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "CPTH" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "ARMA" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] GRUP Top "MESG" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch - Broken Steel.esp"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] File loaded (CRC32:C486896C)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Adding master "BrokenSteel.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Header processed. Expecting 139 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "TXST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "TERM" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "STAT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "MSTT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "CREA" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "CELL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "DIAL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "QUST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] GRUP Top "FLST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch - Mothership Zeta.esp"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] File loaded (CRC32:30C44BE5)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Adding master "Zeta.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Header processed. Expecting 19 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "ARMO" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "STAT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "WEAP" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "ALCH" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "NOTE" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "ARMA" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] GRUP Top "MESG" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch - Operation Anchorage.esp"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] File loaded (CRC32:CA877E59)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Adding master "Anchorage.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Header processed. Expecting 63 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "TXST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "ACTI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "TERM" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "ARMO" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "NPC_" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "NOTE" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "CELL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "QUST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "FLST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "PERK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] GRUP Top "ARMA" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch - Point Lookout.esp"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] File loaded (CRC32:A9245EB9)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Adding master "PointLookout.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Header processed. Expecting 32 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "MISC" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "NAVI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "CELL" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] GRUP Top "PERK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Processing completed
+[00:04] Background Loader: loading "Unofficial Fallout 3 Patch - The Pitt.esp"...
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Loading file
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] File loaded (CRC32:9D96A8DD)
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Start processing
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Adding master "Fallout3.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Adding master "ThePitt.esm"
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Header processed. Expecting 47 records
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "SCPT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "ENCH" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "ACTI" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "ARMO" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "STAT" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "NPC_" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "WRLD" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "QUST" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] GRUP Top "PACK" processed
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Building FormID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] FormID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Building EditorID index
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] EditorID index built
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Processing completed
+[00:04] Background Loader: [Fallout3.esm] Start loading or building reference info.
+[00:04] Background Loader: [Fallout3.exe] Start loading or building reference info.
+[00:04] Background Loader: [Anchorage.esm] Start loading or building reference info.
+[00:04] Background Loader: [ThePitt.esm] Start loading or building reference info.
+[00:04] Background Loader: [BrokenSteel.esm] Start loading or building reference info.
+[00:04] Background Loader: [PointLookout.esm] Start loading or building reference info.
+[00:04] Background Loader: [Zeta.esm] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Start loading or building reference info.
+[00:04] Background Loader: [Fallout3.exe] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Broken Steel.esp] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Mothership Zeta.esp] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Operation Anchorage.esp] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - Point Lookout.esp] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Start loading or building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch - The Pitt.esp] Done building reference info.
+[00:04] Background Loader: [Unofficial Fallout 3 Patch.esm] Done loading reference info.
+[00:04] Background Loader: [Anchorage.esm] Done loading reference info.
+[00:04] Background Loader: [ThePitt.esm] Done loading reference info.
+[00:04] Background Loader: [Zeta.esm] Done loading reference info.
+[00:04] Background Loader: [BrokenSteel.esm] Done loading reference info.
+[00:04] Background Loader: [PointLookout.esm] Done loading reference info.
+[00:05] Background Loader: [Fallout3.esm] Done loading reference info.
+[00:05] Background Loader: finished
+
