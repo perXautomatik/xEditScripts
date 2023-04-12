@@ -1,4 +1,7 @@
-{FyTy}
+{
+  New script template, only shows processed records
+  Assigning any nonzero value to Result will terminate script
+}
 unit userscript;
 
 // Called before processing
