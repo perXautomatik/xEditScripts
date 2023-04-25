@@ -4,31 +4,25 @@
 unit UserScript;
 
 const
-//  StrReplace = 'Wood';
-//  StrReplace = 'Leather Sheath';
-//  StrReplace = 'Glass';
-//  StrReplace = 'Ceramic';
-//  StrReplace = 'Plastic';
-//  StrReplace = 'Adhesive';
-//  StrReplace = 'Steel';
-//  StrReplace = 'Scrap Electronics';
-//  StrReplace = 'Scrap-Blade';
-//  StrReplace = 'Scrap Metal';
-//  StrReplace = 'Stimpak';
-//  StrReplace = 'Cloth';
-//  StrReplace = 'Aluminum';
-//  StrReplace = 'Bandage';
-//StrReplace = 'Empty Syringe';
-  StrReplace = 'Armor Plating';
-  StrSearch = '070056AB';
-  StrReplace = '0E00419D';
-
+  StrReplace = 'Scrap Electronics';
+  StrSearch = '';
 var
   ReplaceCount: integer;
+  StrSearch: string;
+  StrReplace: string;
 
 function Initialize: integer;
 begin
   ReplaceCount := 0;
+  Result := 0;
+  // ask for string
+  if not InputQuery('Enter', 'Search For', StrSearch) and InputQuery('Enter', 'Replace with', StrReplace) then begin
+    Result := 2;
+    Exit;
+  end;
+  // empty string - do nothing
+  if StrSearch = '' then
+    Result := 3;
 end;
 
 procedure SearchAndReplace(e: IInterface; s1, s2: string);

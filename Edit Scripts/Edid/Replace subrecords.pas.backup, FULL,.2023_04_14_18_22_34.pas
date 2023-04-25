@@ -13,16 +13,11 @@ const
 //  StrReplace = 'Steel';
 //  StrReplace = 'Scrap Electronics';
 //  StrReplace = 'Scrap-Blade';
-//  StrReplace = 'Scrap Metal';
+  StrReplace = 'Scrap Metal';
 //  StrReplace = 'Stimpak';
 //  StrReplace = 'Cloth';
-//  StrReplace = 'Aluminum';
-//  StrReplace = 'Bandage';
 //StrReplace = 'Empty Syringe';
-  StrReplace = 'Armor Plating';
-  StrSearch = '070056AB';
-  StrReplace = '0E00419D';
-
+  StrSearch = '';
 var
   ReplaceCount: integer;
 
@@ -38,7 +33,7 @@ begin
   if not Assigned(e) then Exit;
 
   // remove rfIgnoreCase to be case sensitive
-  s := StringReplace(GetEditValue(e), s1, s2, [rfReplaceAll, rfIgnoreCase]);
+  s := StrReplace;
 
   if not SameText(s, GetEditValue(e)) then begin
     Inc(ReplaceCount);

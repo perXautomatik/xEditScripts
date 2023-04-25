@@ -16,19 +16,26 @@ const
 //  StrReplace = 'Scrap Metal';
 //  StrReplace = 'Stimpak';
 //  StrReplace = 'Cloth';
-//  StrReplace = 'Aluminum';
-//  StrReplace = 'Bandage';
+  StrReplace = 'Aluminum';
 //StrReplace = 'Empty Syringe';
-  StrReplace = 'Armor Plating';
-  StrSearch = '070056AB';
-  StrReplace = '0E00419D';
-
+  StrSearch = '';
 var
   ReplaceCount: integer;
+  StrSearch: string;
+  StrReplace: string;
 
 function Initialize: integer;
 begin
   ReplaceCount := 0;
+  Result := 0;
+  // ask for string
+  if not InputQuery('Enter', 'Search For', StrSearch) and InputQuery('Enter', 'Replace with', StrReplace) then begin
+    Result := 2;
+    Exit;
+  end;
+  // empty string - do nothing
+  if StrSearch = '' then
+    Result := 3;
 end;
 
 procedure SearchAndReplace(e: IInterface; s1, s2: string);

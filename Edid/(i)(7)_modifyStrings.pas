@@ -115,7 +115,6 @@ begin
 		btnAddPrefix.Anchors := [akRight, akBottom];
 		btnAddPrefix.OnClick := evtClickBtnAddPrefix;
 		btnAddPrefix.Visible := False;
-		btnAddPrefix.ModalResult := mrOk;
 
 		cmbContainer := TComboBox.Create(panelMain);
 		cmbContainer.Parent := panelMain;
