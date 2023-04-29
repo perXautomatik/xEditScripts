@@ -13,7 +13,7 @@
 
 unit UserScript;
 
-uses mteFunctions;
+uses 'lib/mteFunctions';
 
 const
   vs = '1.1';

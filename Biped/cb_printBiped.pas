@@ -4,7 +4,7 @@
   todo: cut down functions this overcomplicated and not helpful
 }
 unit userscript;
-uses 'dubhFunctions';
+uses 'lib/dubhFunctions';
 
 // Called before processing
 // You can remove it if script doesn't require initialization code

@@ -1,6 +1,6 @@
 unit dubhFunctions;
 
-uses mteFunctions;
+uses 'lib/mteFunctions';
 
 procedure UserPrompt(asCaption, asQuery: String);
 begin

@@ -9,7 +9,7 @@ end;
 \bmdt - biped data\biped flags (sorted)\mask\
 }
 unit FullPrefixSufix;
-uses 'cb_printBiped';
+uses 'biped/cb_printBiped';
 
 var
   DoPrepend: boolean;
