@@ -50,7 +50,7 @@ begin
   FlattenCellChilds := False;
   AssignPersWrldChild := False;
   InheritConflictByParent := True; // color conflicts
-  FilterScripted := True; // use custom Filter() function
+  FilterScripted := False; // use custom Filter() function
 
   ApplyFilter;
 

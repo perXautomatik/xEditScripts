@@ -4,6 +4,8 @@
 unit UserScript;
 
 const
+  StrReplace = 'Barrel, Rifle (Basic)';
+//  StrReplace = 'Paper';
 //  StrReplace = 'Wood';
 //  StrReplace = 'Leather Sheath';
 //  StrReplace = 'Glass';
@@ -18,10 +20,10 @@ const
 //  StrReplace = 'Cloth';
 //  StrReplace = 'Aluminum';
 //  StrReplace = 'Bandage';
-//StrReplace = 'Empty Syringe';
-  StrReplace = 'Armor Plating';
-  StrSearch = '070056AB';
-  StrReplace = '0E00419D';
+//  StrReplace = 'Empty Syringe';
+//  StrReplace = 'Armor Plating';
+
+//  StrReplace = '0E00419D';
 
 var
   ReplaceCount: integer;
@@ -38,7 +40,8 @@ begin
   if not Assigned(e) then Exit;
 
   // remove rfIgnoreCase to be case sensitive
-  s := StringReplace(GetEditValue(e), s1, s2, [rfReplaceAll, rfIgnoreCase]);
+  //s := StringReplace(GetEditValue(e), s1, s2, [rfReplaceAll, rfIgnoreCase]);
+  s := StrReplace;
 
   if not SameText(s, GetEditValue(e)) then begin
     Inc(ReplaceCount);
@@ -49,6 +52,8 @@ begin
 end;
 
 function Process(e: IInterface): integer;
+var
+  StrSearch: string;
 begin
   SearchAndReplace(ElementBySignature(e, 'FULL'), StrSearch, StrReplace);
 end;
