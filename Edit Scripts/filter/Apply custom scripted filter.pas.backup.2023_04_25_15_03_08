@@ -15,7 +15,9 @@ end;
 function Initialize: Integer;
 begin
   FilterConflictAll := False;
+  FilterConflictAllSet := [];
   FilterConflictThis := False;
+  FilterConflictThisSet := [];
   FilterByInjectStatus := False;
   FilterInjectStatus := False;
   FilterByNotReachableStatus := False;
@@ -37,20 +39,20 @@ begin
   FilterMasterIsTemporary := False;
   FilterIsMaster := False;
   FilterPersistentPosChanged := False;
-  FilterDeleted := False;
+  FilterDeleted := True; // *********************
   FilterByVWD := False;
   FilterVWD := False;
   FilterByHasVWDMesh := False;
   FilterHasVWDMesh := False;
-  FilterBySignature := False;
-  FilterSignatures := '';
+  FilterBySignature := True; // *********************
+  FilterSignatures := 'NAVM'; // *********************
   FilterByBaseSignature := False;
   FilterBaseSignatures := '';
   FlattenBlocks := False;
   FlattenCellChilds := False;
   AssignPersWrldChild := False;
   InheritConflictByParent := True; // color conflicts
-  FilterScripted := True; // use custom Filter() function
+  FilterScripted := False; // use custom Filter() function
 
   ApplyFilter;
 

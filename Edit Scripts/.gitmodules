@@ -1,0 +1,57 @@
+[submodule "SS2XeditScripts"]
+	path = SS2XeditScripts
+	url = https://github.com/perXautomatik/SS2XeditScripts.git
+[submodule "fireundubh-xedit-scripts"]
+	path = fireundubh-xedit-scripts
+	url = https://github.com/perXautomatik/xedit-scripts.git
+[submodule "DankRafft-xEditScripts"]
+	path = DankRafft-xEditScripts
+	url = https://github.com/perXautomatik/xEditScripts-1.git
+[submodule "xEdit-json-export"]
+	path = xEdit-json-export
+	url = https://github.com/perXautomatik/xEdit-json-export.git
+[submodule "mxpf"]
+	path = mxpf
+	url = https://github.com/perXautomatik/mxpf.git
+[submodule "i-am-the-soup-xedit-scripts"]
+	path = i-am-the-soup-xedit-scripts
+	url = https://github.com/perXautomatik/xedit-scripts-1.git
+[submodule "Sharlikran-xEditScripts"]
+	path = Sharlikran-xEditScripts
+	url = https://github.com/perXautomatik/xEditScripts.git
+[submodule "FiftyTifty-xEdit-Scripts"]
+	path = FiftyTifty-xEdit-Scripts
+	url = https://github.com/perXautomatik/xEdit-Scripts-2.git
+[submodule "DavidJCobb-xedit-tesv-scripts"]
+	path = DavidJCobb-xedit-tesv-scripts
+	url = https://github.com/perXautomatik/xedit-tesv-scripts.git
+[submodule "xedit-serialize"]
+	path = xedit-serialize
+	url = https://github.com/perXautomatik/xedit-serialize.git
+[submodule "aers-count_loaded_refs_in_load_order/Edit Script"]
+	path = aers-count_loaded_refs_in_load_order/Edit Scripts
+	url = https://gist.github.com/953a50c61b3028bce7e5376e8590abed.git
+[submodule "GitFopdoc/Edit scripts/fopdoc"]
+	path = GitFopdoc/Edit scripts/fopdoc
+	url = https://github.com/TES5Edit/fopdoc.git
+[submodule "smashSource"]
+	path = smashSource
+	url = https://github.com/matortheeternal/smash.git
+[submodule "matortheeternal-TES5EditScripts"]
+	path = matortheeternal-TES5EditScripts
+	url = https://github.com/matortheeternal/TES5EditScripts.git
+[submodule "frostfall-warmth-utility"]
+	path = frostfall-warmth-utility
+	url = https://github.com/matortheeternal/frostfall-warmth-utility.git
+[submodule "xedit-lib"]
+	path = xedit-lib
+	url = https://github.com/matortheeternal/xedit-lib.git
+[submodule "matortheeternal/edit scripts/argo-Json"]
+	path = matortheeternal/edit scripts/argo-Json
+	url = https://github.com/matortheeternal/argo.git
+[submodule "matortheeternal/edit scripts/ModDump-source"]
+	path = matortheeternal/edit scripts/ModDump-source
+	url = https://github.com/matortheeternal/mod-dump.git
+[submodule "mteFunctions"]
+	path = mteFunctions
+	url = https://github.com/matortheeternal/mteFunctions.git
